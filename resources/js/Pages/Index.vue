@@ -69,6 +69,7 @@ defineProps({
         <div class="mt-10"><!--Content-->
             <h1 class="lg:text-6xl sm:text-5xl">Welcome to Trade Crypto</h1> <br>
             <p class="text-4xl">Learn how to trade!!!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam fuga quod rerum illo alias voluptates, reiciendis ab earum illum incidunt, repellendus, dignissimos esse tenetur rem distinctio dolore quisquam sapiente vitae quae? Molestias sit quos, unde nulla quo nemo quam odit earum eaque odio fuga explicabo, ducimus officiis rem, reprehenderit reiciendis!</p>
         </div>
     </div>
 </template>
