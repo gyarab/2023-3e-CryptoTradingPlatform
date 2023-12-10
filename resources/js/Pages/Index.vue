@@ -69,13 +69,6 @@ defineProps({
         <div class="text-6xl mt-10"><!--Content-->
             <h1>Welcome to Trade Crypto</h1>
         </div>
-        <TextInput /> <br>
-        <SecondaryButton /> <br>
-        <PrimaryButton>LOL</PrimaryButton> <br>
-        <InputLabel value="Sample Text" /> <br>
-        <DangerButton /> <br>
-        <Checkbox /> <br>
-        <DarkModeRoot />
     </div>
 </template>
 

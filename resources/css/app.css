@@ -21,35 +21,35 @@
             /* ... */
           }
     }
-    :root[data-theme="dark"]{
+    :root[data-theme="Dark"]{
         --color-bg: 17 24 39;
         --color-primarytext: 255 255 255;
         --color-secondarytext: 200 200 200;
         --color-buttonbg: 229 231 235;
         --color-border: 117 112 112;
     }
-    :root[data-theme="light"]{
+    :root[data-theme="Light"]{
         --color-bg: 255 255 255;
         --color-primarytext: 0 0 0;
         --color-secondarytext: 0 0 0;
         --color-buttonbg: 31 41 55;
         --color-border: 200 200 200;
     }
-    :root[data-theme="gemstone"]{
+    :root[data-theme="Gemstone"]{
       --color-bg: 255 255 255;
       --color-primarytext: 0 0 0;
       --color-secondarytext: 255 255 255;
       --color-buttonbg: 255 255 255;
       --color-border: 255 255 255;
     }
-    :root[data-theme="modern"]{
+    :root[data-theme="Modern"]{
       --color-bg: 255 255 255;
       --color-primarytext: 0 0 0;
       --color-secondarytext: 255 255 255;
       --color-buttonbg: 255 255 255;
       --color-border: 200 200 200;
     }
-    :root[data-theme="pro"]{
+    :root[data-theme="Pro"]{
       --color-bg: 0 0 128;
       --color-primarytext: 255 255 255;
       --color-secondarytext: 180 180 180;
