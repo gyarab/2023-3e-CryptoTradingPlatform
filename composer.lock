@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "95b0ebb122e0b3693f43aead3271d937",
+    "content-hash": "a225e2e535056b1bef5aaff2855f8c8f",
     "packages": [
         {
             "name": "brick/math",
@@ -5771,6 +5771,51 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
+        },
+        {
+            "name": "wisdom-diala/cryptocap-pkg",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wisdom-diala/cryptocap-pkg.git",
+                "reference": "25dd1075f8b984cd48862ab9879d0be00f67df69"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wisdom-diala/cryptocap-pkg/zipball/25dd1075f8b984cd48862ab9879d0be00f67df69",
+                "reference": "25dd1075f8b984cd48862ab9879d0be00f67df69",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "WisdomDiala\\Cryptocap\\Providers\\CryptocapServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "WisdomDiala\\Cryptocap\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Diala Wisdom",
+                    "email": "talk2whizzy@gmail.com"
+                }
+            ],
+            "description": "Package to fetch cryptocurrency price, market value, assets etc.",
+            "support": {
+                "issues": "https://github.com/wisdom-diala/cryptocap-pkg/issues",
+                "source": "https://github.com/wisdom-diala/cryptocap-pkg/tree/main"
+            },
+            "time": "2021-08-09T06:35:21+00:00"
         }
     ],
     "packages-dev": [
@@ -8276,7 +8321,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
