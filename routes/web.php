@@ -35,4 +35,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/cryptocurrency', [\App\Http\Controllers\CryptoController::class, 'displayValues']);
+
 require __DIR__.'/auth.php';
