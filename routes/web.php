@@ -16,14 +16,14 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return Inertia::render('Index', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-})->name('index');
+})->name('index');*/
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -35,6 +35,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/cryptocurrency', [\App\Http\Controllers\CryptoController::class, 'displayValues']);
+Route::get('/', [\App\Http\Controllers\CryptoController::class, 'displayValues'])->name('index');
 
 require __DIR__.'/auth.php';

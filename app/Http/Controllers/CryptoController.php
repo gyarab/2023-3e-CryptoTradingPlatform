@@ -12,7 +12,7 @@ use WisdomDiala\Cryptocap\Facades\Cryptocap;
 class CryptoController extends Controller
 {
     public function displayValues() {
-        $cryptocurrencies = Cryptocap::getAssets()->data;
+        $cryptocurrencies = Cryptocap::getAssetsWithLimit(5)->data;
 
         return Inertia::render('Index', [
             'canLogin' => Route::has('login'),
