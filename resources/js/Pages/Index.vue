@@ -35,7 +35,8 @@ defineProps({
 <template>
     <Head title="Welcome" />
 
-    <header class="text-primarytext sticky flex  justify-between border-b border-border p-2 left-0 right-0 top-0 bg-bg"><!--Header-->
+    <header class="text-primarytext sticky flex  justify-between border-b border-border p-2 left-0 right-0 top-0 bg-bg">
+        <!--Header-->
         <div>
             <ApplicationLogo class="w-12 h-12" />
         </div>
@@ -70,39 +71,44 @@ defineProps({
                     ducimus officiis rem, reprehenderit reiciendis!</p>
             </div>
 
-            <div class="justify-center overflow-x-auto shadow-md rounded-lg">
-                <div>
-                    <table
-                        class="table-fixed overflow-scroll w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="px-6 py-3">
-                                    Cryptocurrency
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Shortcut
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Price in USD
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-                                v-for="currency in cryptocurrencies">
-                                <th scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{ currency["name"] }}
-                                </th>
-                                <td class="px-6 py-4">
-                                    {{ currency["symbol"] }}
-                                </td>
-                                <td class="px-6 py-4">
-                                    {{ currency["priceUsd"] }}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="flex flex-col">
+                <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                        <div class="overflow-hidden rounded-lg bg-gray-700">
+                            <table
+                                class="border-none min-w-full text-left text-sm font-light rounded-lg">
+                                <thead
+                                    class="border-none border-b font-medium dark:border-neutral-500 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-50">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3">
+                                            Cryptocurrency
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Shortcut
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Price in USD
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+                                        v-for="currency in cryptocurrencies">
+                                        <th scope="row"
+                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            {{ currency["name"] }}
+                                        </th>
+                                        <td class="px-6 py-4 dark:text-black">
+                                            {{ currency["symbol"] }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            {{ currency["priceUsd"] }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
 
