@@ -33,6 +33,7 @@ defineProps({
 </script>
 
 <template>
+
     <Head title="Welcome" />
 
     <header class="text-primarytext sticky flex  justify-between border-b border-border p-2 left-0 right-0 top-0 bg-bg">
@@ -59,60 +60,56 @@ defineProps({
             </template>
         </div>
     </header>
-    <div class="pt-12 pr-12 pl-12 h-full text-primarytext bg-bg"> <!--wrapper-->
+    <div class="pt-12 pr-12 pl-12 h-dvh min-h-screen text-primarytext bg-bg"> <!--wrapper-->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4"><!--Content-->
 
             <div>
                 <h1 class="lg:text-6xl sm:text-5xl">Welcome to Trade Crypto</h1> <br>
                 <p class="text-4xl">Learn how to trade!!!</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam fuga quod rerum illo alias voluptates,
-                    reiciendis ab earum illum incidunt, repellendus, dignissimos esse tenetur rem distinctio dolore quisquam
-                    sapiente vitae quae? Molestias sit quos, unde nulla quo nemo quam odit earum eaque odio fuga explicabo,
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam fuga quod rerum illo alias
+                    voluptates,
+                    reiciendis ab earum illum incidunt, repellendus, dignissimos esse tenetur rem distinctio dolore
+                    quisquam
+                    sapiente vitae quae? Molestias sit quos, unde nulla quo nemo quam odit earum eaque odio fuga
+                    explicabo,
                     ducimus officiis rem, reprehenderit reiciendis!</p>
             </div>
 
-            <div class="flex flex-col">
-                <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                        <div class="overflow-hidden rounded-lg bg-gray-700">
-                            <table
-                                class="border-none min-w-full text-left text-sm font-light rounded-lg">
-                                <thead
-                                    class="border-none border-b font-medium dark:border-neutral-500 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-50">
-                                    <tr>
-                                        <th scope="col" class="px-6 py-3">
-                                            Cryptocurrency
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Shortcut
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Price in USD
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-                                        v-for="currency in cryptocurrencies">
-                                        <th scope="row"
-                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            {{ currency["name"] }}
-                                        </th>
-                                        <td class="px-6 py-4 dark:text-black">
-                                            {{ currency["symbol"] }}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            {{ currency["priceUsd"] }}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+            <div class="justify-center overflow-x-auto shadow-md rounded-lg">
+                <div>
+                    <table class="border-none min-w-full text-left text-sm font-light rounded-lg bg-secondarybg">
+                        <thead class="border-none border-b font-medium text-xs uppercase">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Cryptocurrency
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Shortcut
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Price in USD
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-secondarybg"
+                                v-for="currency in cryptocurrencies">
+                                <td scope="row"
+                                    class="px-6 py-4 font-medium text-primarytext">
+                                    {{ currency["name"] }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ currency["symbol"] }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ currency["priceUsd"]}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
         </div>
     </div>
 </template>
-
