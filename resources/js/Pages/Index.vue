@@ -51,11 +51,11 @@ defineProps({
 
             <template v-else>
                 <Link :href="route('login')"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
+                    class="font-semibold text-secondarytext hover:text-hovertext focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
                 Log in</Link>
 
                 <Link v-if="canRegister" :href="route('register')"
-                    class="ms-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
+                    class="ms-4 font-semibold text-secondarytext hover:text-hovertext focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
                 Register</Link>
             </template>
         </div>
@@ -83,7 +83,7 @@ defineProps({
                                 <th scope="col" class="px-6 py-3">
                                     Cryptocurrency
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" class="px-6 py-3 hidden md:flex">
                                     Shortcut
                                 </th>
                                 <th scope="col" class="px-6 py-3">
@@ -98,11 +98,11 @@ defineProps({
                                     class="px-6 py-4 font-medium text-primarytext">
                                     {{ currency["name"] }}
                                 </td>
-                                <td class="px-6 py-4">
+                                <td class="px-6 py-4 hidden md:flex">
                                     {{ currency["symbol"] }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ currency["priceUsd"]}}
+                                   <span class="text-green-500">$</span>{{ parseFloat(currency["priceUsd"]).toFixed(2)}}
                                 </td>
                             </tr>
                         </tbody>
