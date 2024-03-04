@@ -33,6 +33,14 @@ import { ref } from 'vue';
 const searchValue = ref('');
 
 const redirectToUserInput = () => {
+  const isString = /^[A-Za-z]+$/.test(searchValue.value);
+
+  if (!isString) {
+    // If it's not a string, redirect to the dashboard
+    window.location.href = '/dashboard';
+    return;
+  }
+
   const targetUrl = searchValue.value ? `/dashboard/${searchValue.value}` : '/dashboard';
   console.log('Redirecting to:', targetUrl);
   window.location.href = targetUrl;

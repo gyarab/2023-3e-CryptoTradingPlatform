@@ -2,7 +2,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import CryptoCurrency from '@/Components/CryptoCurrency.vue';
-import SearchBar from '@/Components/Searchbar.vue';
+import SearchBar from '@/Components/SearchBar.vue';
 import { ref } from 'vue';
 
 defineProps({

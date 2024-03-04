@@ -22,16 +22,29 @@ class CryptoController extends Controller
         ]);
     }
 
-    public function singleCryptoCurrency(string $cryptocurrency = '') 
+    public function singleCryptoCurrency($cryptocurrency = null) 
     {
-        $cryptocurrency_values = Cryptocap::getSingleAsset($cryptocurrency);
+        // Validate user input
+        $cryptocurrency = filter_var($cryptocurrency);
 
+        $cryptocurrency = strtolower($cryptocurrency);
+        
+        $cryptocurrency_values = Cryptocap::getSingleAsset($cryptocurrency);
+        if(!is_string($cryptocurrency))
+        {
+            //Invalid cryptocurrency name
+            return Inertia::render('Dashboard', [
+                'cryptocurrency' => $cryptocurrency_values,
+                'error_message' => "Invalid name for a cryptocurrency",
+            ]);
+
+        }
         if(property_exists($cryptocurrency_values, "error"))
         {
             //The cryptocurrency doesn't exist
             return Inertia::render('Dashboard', [
                 'cryptocurrency' => $cryptocurrency_values,
-                'error_message' => "The crypto currency you searched for doesn't exist",
+                'error_message' => "The crypto currency you searched for isn't in our database",
             ]);
         }
 
