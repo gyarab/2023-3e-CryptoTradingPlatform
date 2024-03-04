@@ -1,25 +1,40 @@
-<!-- resources/js/components/SearchBar.vue -->
-
 <template>
-    <input
-      type="text"
-      v-model="searchValue"
-      @input="updateRoute"
-      placeholder="Search Crypto"
-      class="p-2 border rounded-md"
-    />
-  </template>
-  
-  <script setup>
-  import { ref, watch } from 'vue';
-  
-  const route = useRoute();
-  const router = useRouter();
-  
-  const searchValue = ref(route.params.searchValue || '');
-  
-  watch(searchValue, (newVal) => {
-    router.push({ name: 'Dashboard', params: { searchValue: newVal } });
-  });
-  </script>
-  
+  <form @submit.prevent="redirectToUserInput">
+    <div class="flex items-center">
+      <input
+        type="text"
+        v-model="searchValue"
+        placeholder="Search for Crypto..."
+        class="p-4 border rounded-md mr-2 w-full"
+      />
+      <button type="submit" class="p-4 bg-primarytext text-white rounded-md">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          class="h-6 w-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"
+          ></path>
+        </svg>
+      </button>
+    </div>
+  </form>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const searchValue = ref('');
+
+const redirectToUserInput = () => {
+  const targetUrl = searchValue.value ? `/dashboard/${searchValue.value}` : '/dashboard';
+  console.log('Redirecting to:', targetUrl);
+  window.location.href = targetUrl;
+};
+</script>

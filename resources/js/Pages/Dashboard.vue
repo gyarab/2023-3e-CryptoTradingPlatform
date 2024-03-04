@@ -2,15 +2,8 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import CryptoCurrency from '@/Components/CryptoCurrency.vue';
+import SearchBar from '@/Components/Searchbar.vue';
 import { ref } from 'vue';
-
-const searchValue = ref('');
-
-const redirectToUserInput = () => {
-  const targetUrl = searchValue.value ? `/dashboard/${searchValue.value}` : '/dashboard';
-  console.log('Redirecting to:', targetUrl);
-  window.location.href = targetUrl;
-};
 
 defineProps({
     cryptocurrency: {
@@ -37,34 +30,7 @@ defineProps({
           Crypto Trading Platform
         </h2>
         <!-- Search bar section -->
-        <div class="p-6 w-full md:w-auto" v-if="!error_message">
-          <form @submit.prevent="redirectToUserInput">
-            <div class="flex items-center">
-              <input
-                type="text"
-                v-model="searchValue"
-                placeholder="Search for Crypto..."
-                class="p-4 border rounded-md mr-2 w-full"
-              />
-              <button type="submit" class="p-4 bg-primarytext text-white rounded-md">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  class="h-6 w-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 19l-7-7 7-7"
-                  ></path>
-                </svg>
-              </button>
-            </div>
-          </form>
-        </div>
+        <SearchBar />
       </div>
     </template>
 
