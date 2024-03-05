@@ -3,7 +3,9 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import CryptoCurrency from '@/Components/CryptoCurrency.vue';
 import SearchBar from '@/Components/SearchBar.vue';
+import CryptoChart from '@/Components/CryptoChart.vue';
 import { ref } from 'vue';
+import { data } from 'autoprefixer';
 
 defineProps({
     cryptocurrency: {
@@ -14,6 +16,9 @@ defineProps({
     },
     url: {
         type: String
+    },
+    history: {
+        type: Object
     }
 });
 
@@ -39,7 +44,8 @@ defineProps({
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-bg overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
                     <div class="p-6 text-primarytext">You're logged in!</div>
-                    
+                    <CryptoChart />
+                    {{ history }}
                 </div>
                 <div class="bg-bg text-primarytext overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg mt-5">
                     <span class="p-6" v-if="error_message">{{ error_message }}</span>
