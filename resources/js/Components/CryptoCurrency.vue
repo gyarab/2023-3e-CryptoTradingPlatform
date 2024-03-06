@@ -32,7 +32,7 @@
       </div>
 
       <!-- Buy Now Button -->
-      <button class="bg-blue-500 text-white px-4 py-2 rounded-md w-full transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none">Buy Now</button>
+      <button class="bg-purple-500 text-white px-4 py-2 rounded-md w-full transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none">Buy Now</button>
     </div>
   </div>
 </template>
@@ -40,14 +40,14 @@
 
 <script setup>
 defineProps({
-name: String,
-shortcut: String,
-priceUsd: String,
-supply: String,      
-maxSupply: String,
-volumeUsd24Hr: String,
-changePercent24Hr: String,
-vwap24Hr: String,
-currencyImg: String,
+  name: String,
+  shortcut: String,
+  priceUsd: String,
+  supply: String,      
+  maxSupply: String,
+  volumeUsd24Hr: String,
+  changePercent24Hr: String,
+  vwap24Hr: String,
+  currencyImg: String,
 });
 </script>
