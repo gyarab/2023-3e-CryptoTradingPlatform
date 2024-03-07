@@ -36,21 +36,22 @@ defineProps({
 
     <AuthenticatedLayout>
         <template #header>
-      <div class="md:flex md:items-center md:justify-between">
-        <!-- Header for medium and larger screens -->
-        <h2 class="font-semibold text-xl text-primarytext leading-tight md:mr-4">
-          Crypto Trading Platform
-        </h2>
-        <!-- Search bar section -->
-        <SearchBar />
-      </div>
-    </template>
+            <div class="md:flex md:items-center md:justify-between">
+                <!-- Header for medium and larger screens -->
+                <h2 class="font-semibold text-xl text-primarytext leading-tight md:mr-4">
+                Crypto Trading Platform
+                </h2>
+                <!-- Search bar section -->
+                <SearchBar />
+            </div>
+        </template>
 
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-bg overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
                     <div class="p-6 text-primarytext">You're logged in!</div>
+
                 </div>
                 <div class="bg-bg text-primarytext overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg mt-5">
                     <span class="p-6" v-if="error_message">{{ error_message }}</span>
