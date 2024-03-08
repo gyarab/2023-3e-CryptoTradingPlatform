@@ -33,6 +33,7 @@ defineProps({
 </script>
 
 <template>
+    <div class="">
     <Head title="Welcome" />
       
         <div class="text-primarytext sticky flex  justify-between border-b border-border p-2 left-0 right-0 top-0 bg-bg"><!--Header-->
@@ -59,12 +60,13 @@ defineProps({
                     class="ms-4 font-semibold text-secondarytext hover:text-hovertext focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
                 Register</Link>
             </template>
+            </div>
         </div>
-        <div class="pt-12 pr-12 pl-12 s:h-dvh h-full text-primarytext bg-bg"> <!--wrapper-->
+        <div class="pt-12 pr-12 pl-12 s:h-dvh min-h-screen h-full text-primarytext bg-bg"> <!--wrapper-->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4"><!--Content-->
         
             <div>
-                <h1 class="lg:text-6xl sm:text-5xl">Welcome to Trade Crypto</h1> <br>
+                <h1 class="lg:text-6xl sm:text-5xl text-primarytext">Welcome to Trade Crypto</h1> <br>
                 <p class="text-4xl">Learn how to trade!!!</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam fuga quod rerum illo alias voluptates, reiciendis ab earum illum incidunt, repellendus, dignissimos esse tenetur rem distinctio dolore quisquam sapiente vitae quae? Molestias sit quos, unde nulla quo nemo quam odit earum eaque odio fuga explicabo, ducimus officiis rem, reprehenderit reiciendis!</p>
             </div>
@@ -105,6 +107,7 @@ defineProps({
             </div>
 
         </div>
+    </div>
     </div>
 </template>
 
