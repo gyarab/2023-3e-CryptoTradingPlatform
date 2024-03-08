@@ -9,16 +9,29 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use WisdomDiala\Cryptocap\Facades\Cryptocap;
 
+use function Laravel\Prompts\error;
+
 class CryptoController extends Controller
 {
     public function displayValues() 
     {
-        $cryptocurrencies = Cryptocap::getAssetsWithLimit(5)->data;
+        $cryptocurrencies = Cryptocap::getAssetsWithLimit(5);
+        $error_message = null;
+
+        //ošetřit, když nefunguje cryptocap
+        if($cryptocurrencies == null)
+        {
+            $error_message = "No response from api";
+        }   else
+            {
+                $cryptocurrencies = $cryptocurrencies->data;
+            }
 
         return Inertia::render('Index', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
-            'cryptocurrencies' => $cryptocurrencies
+            'cryptocurrencies' => $cryptocurrencies,
+            'error_message' => $error_message,
         ]);
     }
 
@@ -76,7 +89,7 @@ class CryptoController extends Controller
 
         if(property_exists($cryptocurrency_values, "error"))
         {
-            return 3;
+            return 3; //upravit vyjímku nefunguje kdyz nefunguje cryptocap
         }
     }
 
