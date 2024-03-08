@@ -17,6 +17,7 @@ export default {
                 bg: 'rgb(var(--color-bg) / <alpha-value>)',
                 primarytext: 'rgb(var(--color-primarytext) / <alpha-value>)',
                 secondarytext: 'rgb(var(--color-secondarytext) / <alpha-value>)',
+                hover: 'rgb(var(--color-hovertext) / <alpha-value>',
                 buttonbg: 'rgb(var(--color-buttonbg) / <alpha-value>)',
                 border: 'rgb(var(--color-border) / <alpha-value>)',
             },

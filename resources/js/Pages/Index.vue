@@ -50,21 +50,15 @@ defineProps({
                     >Dashboard</Link
                 >
 
-                <template v-else>
-                    <Link
-                        :href="route('login')"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                        >Log in</Link
-                    >
+            <template v-else>
+                <Link :href="route('login')"
+                    class="font-semibold text-secondarytext hover:text-hovertext focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
+                Log in</Link>
 
-                    <Link
-                        v-if="canRegister"
-                        :href="route('register')"
-                        class="ms-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
-                        >Register</Link
-                    >
-                </template>
-            </div>
+                <Link v-if="canRegister" :href="route('register')"
+                    class="ms-4 font-semibold text-secondarytext hover:text-hovertext focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
+                Register</Link>
+            </template>
         </div>
         <div class="pt-12 pr-12 pl-12 s:h-dvh h-full text-primarytext bg-bg"> <!--wrapper-->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4"><!--Content-->
@@ -77,34 +71,36 @@ defineProps({
 
             <div class="justify-center overflow-x-auto shadow-md sm:rounded-lg">
                 <div>
-                    <table class="table-fixed overflow-scroll w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
-                                Cryptocurrency
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Shortcut
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Price in USD
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" v-for="currency in cryptocurrencies">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                {{ currency["name"] }}
-                            </th>
-                            <td class="px-6 py-4">
-                                {{ currency["symbol"] }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{  currency["priceUsd"] }}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <table class="border-none min-w-full text-left text-sm font-light rounded-lg bg-secondarybg">
+                        <thead class="border-none border-b font-medium text-xs uppercase">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Cryptocurrency
+                                </th>
+                                <th scope="col" class="px-6 py-3 hidden md:flex">
+                                    Shortcut
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Price in USD
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-secondarybg"
+                                v-for="currency in cryptocurrencies">
+                                <td scope="row"
+                                    class="px-6 py-4 font-medium text-primarytext">
+                                    {{ currency["name"] }}
+                                </td>
+                                <td class="px-6 py-4 hidden md:flex">
+                                    {{ currency["symbol"] }}
+                                </td>
+                                <td class="px-6 py-4">
+                                   <span class="text-green-500">$</span>{{ parseFloat(currency["priceUsd"]).toFixed(2)}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
