@@ -33,21 +33,22 @@ defineProps({
 </script>
 
 <template>
-
     <Head title="Welcome" />
-
-    <header class="text-primarytext sticky flex  justify-between border-b border-border p-2 left-0 right-0 top-0 bg-bg">
-        <!--Header-->
-        <div>
-            <ApplicationLogo class="w-12 h-12" />
-        </div>
-        <div>
-            <span>Crypto Trading Platform</span>
-        </div>
-        <div v-if="canLogin" class="">
-            <Link v-if="$page.props.auth.user" :href="route('dashboard')"
-                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-            Dashboard</Link>
+      
+        <div class="text-primarytext sticky flex  justify-between border-b border-border p-2 left-0 right-0 top-0 bg-bg"><!--Header-->
+            <div>
+                <ApplicationLogo class="w-12 h-12"/>
+            </div>
+            <div>
+                <span>Crypto Trading Platform</span>
+            </div>
+            <div v-if="canLogin" class="">
+                <Link
+                    v-if="$page.props.auth.user"
+                    :href="route('dashboard')"
+                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                    >Dashboard</Link
+                >
 
             <template v-else>
                 <Link :href="route('login')"
@@ -59,23 +60,16 @@ defineProps({
                 Register</Link>
             </template>
         </div>
-    </header>
-    <div class="pt-12 pr-12 pl-12 h-dvh min-h-screen text-primarytext bg-bg"> <!--wrapper-->
+        <div class="pt-12 pr-12 pl-12 s:h-dvh h-full text-primarytext bg-bg"> <!--wrapper-->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4"><!--Content-->
-
+        
             <div>
                 <h1 class="lg:text-6xl sm:text-5xl">Welcome to Trade Crypto</h1> <br>
                 <p class="text-4xl">Learn how to trade!!!</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam fuga quod rerum illo alias
-                    voluptates,
-                    reiciendis ab earum illum incidunt, repellendus, dignissimos esse tenetur rem distinctio dolore
-                    quisquam
-                    sapiente vitae quae? Molestias sit quos, unde nulla quo nemo quam odit earum eaque odio fuga
-                    explicabo,
-                    ducimus officiis rem, reprehenderit reiciendis!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam fuga quod rerum illo alias voluptates, reiciendis ab earum illum incidunt, repellendus, dignissimos esse tenetur rem distinctio dolore quisquam sapiente vitae quae? Molestias sit quos, unde nulla quo nemo quam odit earum eaque odio fuga explicabo, ducimus officiis rem, reprehenderit reiciendis!</p>
             </div>
 
-            <div class="justify-center overflow-x-auto shadow-md rounded-lg">
+            <div class="justify-center overflow-x-auto shadow-md sm:rounded-lg">
                 <div>
                     <table class="border-none min-w-full text-left text-sm font-light rounded-lg bg-secondarybg">
                         <thead class="border-none border-b font-medium text-xs uppercase">
@@ -113,3 +107,4 @@ defineProps({
         </div>
     </div>
 </template>
+

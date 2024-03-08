@@ -15,7 +15,6 @@ export default {
         extend: {
             colors: {
                 bg: 'rgb(var(--color-bg) / <alpha-value>)',
-                secondarybg: 'rgb(var(--color-secondarybg) / <alpha-value>)',
                 primarytext: 'rgb(var(--color-primarytext) / <alpha-value>)',
                 secondarytext: 'rgb(var(--color-secondarytext) / <alpha-value>)',
                 hover: 'rgb(var(--color-hovertext) / <alpha-value>',
