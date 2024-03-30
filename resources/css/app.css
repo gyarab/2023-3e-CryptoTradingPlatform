@@ -15,7 +15,7 @@
     }
     @media (prefers-color-scheme:dark) {
         :root {
-            --color-bg: 40 40 39;
+            --color-bg: 40 40 40;
             --color-secondarybg: 55 55 55;
             --color-primarytext: 255 255 255;
             --color-secondarytext: 180 180 180;
