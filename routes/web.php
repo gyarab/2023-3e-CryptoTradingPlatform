@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\BuyCryptocurrency;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,5 +35,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/', [\App\Http\Controllers\CryptoController::class, 'displayValues'])->name('index');
+
+Route::get('dashboard/{cryptocurrency}/buy', [BuyCryptocurrency::class, 'buyCryptoCurrency'])->name('buyCryptocurrency');
 
 require __DIR__.'/auth.php';

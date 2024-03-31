@@ -33,6 +33,7 @@ class CryptoController extends Controller
             'cryptocurrencies' => $cryptocurrencies,
             'error_message' => $error_message,
         ]);
+        //ošetřit, když nepřijdou data
     }
 
     public function singleCryptoCurrency($cryptocurrency = null) 
