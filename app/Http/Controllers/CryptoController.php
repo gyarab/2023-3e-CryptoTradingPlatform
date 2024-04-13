@@ -90,7 +90,7 @@ class CryptoController extends Controller
         }
     }
 
-    private function getCryptoCurrencyValues($cryptocurrency) 
+    protected function getCryptoCurrencyValues($cryptocurrency) 
     {
         $cryptocurrency = filter_var($cryptocurrency);
 

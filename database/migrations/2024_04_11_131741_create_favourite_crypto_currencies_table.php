@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('buy_cryptocurrencies', function (Blueprint $table) {
+        Schema::create('favourite_crypto_currencies', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('name', 50);
-            $table->float('amount');
-            $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
         });
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('buy_cryptocurrencies');
+        Schema::dropIfExists('favourite_crypto_currencies');
     }
 };
