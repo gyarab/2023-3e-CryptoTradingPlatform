@@ -1,11 +1,11 @@
 <template>
   <form @submit.prevent="redirectToUserInput">
-    <div class="flex items-center">
+    <div class="flex items-center text-primarytext">
       <input
+        class="placeholder:text-primarytext p-4 border rounded-md mr-2 w-full bg-secondarybg       "
         type="text"
         v-model="searchValue"
         placeholder="Search for Crypto..."
-        class="p-4 border rounded-md mr-2 w-full"
       />
       <button type="submit" class="p-4 bg-purple-500 text-white rounded-md">
         <svg
