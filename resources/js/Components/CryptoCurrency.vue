@@ -6,7 +6,7 @@
           <img class="w-24 mr-2 mt-2" :src="currencyImg" :alt="`${name} logo`"> <!-- Adjusted margin-top for the logo -->
           <div>
             <p class="text-xl md:text-2xl lg:text-3xl font-bold text-center md:text-left">{{ name }}</p>
-            <p class="text-gray-500 text-sm md:text-base text-center md:text-left">({{ shortcut }})</p>
+            <p class="text-secondarytext text-sm md:text-base text-center md:text-left">({{ shortcut }})</p>
           </div>
         </div>
       </div>
@@ -22,13 +22,13 @@
 
     <button @click="addToMyList" class="absolute top-0 right-0 bg-green-500 text-white px-4 py-2 rounded-md mt-5 mr-6 transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none">Add to My List</button> 
 
-    <div class="text-white md:w-1/2 lg:w-1/3 xl:w-1/4">
+    <div class="text-primarytext md:w-1/2 lg:w-1/3 xl:w-1/4">
       <div class="mb-4 text-center md:text-left">
-        <p class="text-gray-600 text-sm md:text-base">Buy 1 {{ name }}</p>
+        <p class="text-secondarytext text-sm md:text-base">Buy 1 {{ name }}</p>
         <p class="text-2xl md:text-3xl font-bold"><span class="text-green-500">$</span>{{ parseFloat(priceUsd).toFixed(3) }}</p>
       </div>
 
-      <button class="bg-purple-500 text-white px-4 py-2 rounded-md w-full transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none">Buy Now</button>
+      <button class="bg-buttonbg text-white px-4 py-2 rounded-md w-full transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none">Buy Now</button>
     </div>
   </div>
 </template>
