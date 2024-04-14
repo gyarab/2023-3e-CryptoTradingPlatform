@@ -28,7 +28,7 @@
         <p class="text-2xl md:text-3xl font-bold"><span class="text-green-500">$</span>{{ parseFloat(priceUsd).toFixed(3) }}</p>
       </div>
 
-      <button class="bg-buttonbg text-white px-4 py-2 rounded-md w-full transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none">Buy Now</button>
+        <a :href="'/dashboard/' + name.toLowerCase() + '/buy'" class="bg-purple-500 text-white px-4 py-2 rounded-md block text-center transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none">Buy Now</a>
     </div>
   </div>
 </template>

@@ -7,10 +7,17 @@ import CryptoChart from '@/Components/CryptoChart.vue';
 import DropdownIntervals from '@/Components/DropdownIntervals.vue';
 import { ref } from 'vue';
 import { data } from 'autoprefixer';
+import PrimaryButton from '@/Components/PrimaryButton.vue'
+import axios from 'axios';
+import CryptoCalculator from '@/Components/CryptoCalculator.vue'
 
-defineProps({
+
+const { cryptocurrency, message, error_message, url, cryptoDataIn24, cryptoDataIn12, cryptoDataIn1 } = defineProps({
     cryptocurrency: {
-        type: Object,
+        type: Object
+    },
+    message: {
+        type: String
     },
     error_message: {
         type: String
@@ -29,6 +36,22 @@ defineProps({
     },
 });
 
+const buyCrypto = async (amount) => {
+    try {
+        const response = await axios.post('/buy-crypto', { cryptocurrency: cryptocurrency.id, amount });
+        console.log("DONE!"); // Handle success response
+    } catch (error) {
+        console.error(error); // Handle error
+    }
+};
+
+const cryptoAmount = ref(0);
+
+// Define a function to update cryptoAmount when cryptoAmountCalculated event is emitted
+const updateCryptoAmount = (amount) => {
+  cryptoAmount.value = amount;
+  console.log(amount);
+};
 </script>
 
 <template>
@@ -50,32 +73,13 @@ defineProps({
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-bg overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
-                    <div class="p-6 text-primarytext">You're logged in!</div>
+                    <div class="p-6 text-primarytext">{{ cryptocurrency['name'] }} {{ cryptocurrency['priceUsd'] }}</div>
 
                 </div>
                 <div class="bg-bg text-primarytext overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg mt-5">
-                    <span class="p-6" v-if="error_message">{{ error_message }}</span>
-                    <span v-else-if="url">
-                        
-                        <CryptoCurrency 
-                            :name="cryptocurrency['name']"
-                            :shortcut="cryptocurrency['symbol']" 
-                            :priceUsd="cryptocurrency['priceUsd']"
-                            :supply="cryptocurrency['supply']"
-                            :maxSupply="cryptocurrency['maxSupply']"
-                            :volumeUsd24Hr="cryptocurrency['volumeUsd24Hr']"
-                            :changePercent24Hr="cryptocurrency['changePercent24Hr']"
-                            :vwap24Hr="cryptocurrency['vwap24Hr']"
-                            :currencyImg="'https://cryptologos.cc/logos/' + cryptocurrency['id'] + '-' + cryptocurrency['symbol'].toLowerCase() + '-logo.png?v=029'"
-                            />
-                        <CryptoChart 
-                            :dataIn24="cryptoDataIn24"
-                            :dataIn12="cryptoDataIn12"
-                            :dataIn1="cryptoDataIn1"
-                            :name="cryptocurrency['name']"
-                        />
-                    </span>
+                    <button @click="buyCrypto(cryptoAmount)">Buy Crypto</button>
                 </div>
+                <CryptoCalculator :exchangeRate="cryptocurrency['priceUsd']" @cryptoAmountChanged="updateCryptoAmount"/>
             </div>
         </div>
     </AuthenticatedLayout>

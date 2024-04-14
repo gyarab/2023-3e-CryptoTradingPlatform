@@ -33,6 +33,7 @@ class CryptoController extends Controller
             'cryptocurrencies' => $cryptocurrencies,
             'error_message' => $error_message,
         ]);
+        //ošetřit, když nepřijdou data
     }
 
     public function singleCryptoCurrency($cryptocurrency = null) 
@@ -81,19 +82,16 @@ class CryptoController extends Controller
           return 2;
         }
         
-        $cryptocurrency = filter_var($cryptocurrency);
+        $cryptocurrency_values = $this->getCryptoCurrencyValues($cryptocurrency);
 
-        $cryptocurrency = strtolower($cryptocurrency);
-        
-        $cryptocurrency_values = Cryptocap::getSingleAsset($cryptocurrency);
-
-        if(property_exists($cryptocurrency_values, "error"))
+        if (is_object($cryptocurrency_values) && property_exists($cryptocurrency_values, "error")) 
         {
-            return 3; //upravit vyjímku nefunguje kdyz nefunguje cryptocap
+            return 3;
         }
     }
 
-    private function getCryptoCurrencyValues($cryptocurrency) {
+    protected function getCryptoCurrencyValues($cryptocurrency) 
+    {
         $cryptocurrency = filter_var($cryptocurrency);
 
         $cryptocurrency = strtolower($cryptocurrency);
