@@ -1,14 +1,8 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
-import CryptoCurrency from '@/Components/CryptoCurrency.vue';
 import SearchBar from '@/Components/SearchBar.vue';
-import CryptoChart from '@/Components/CryptoChart.vue';
-import DropdownIntervals from '@/Components/DropdownIntervals.vue';
 import { ref } from 'vue';
-import { data } from 'autoprefixer';
-import PrimaryButton from '@/Components/PrimaryButton.vue'
-import axios from 'axios';
 import CryptoCalculator from '@/Components/CryptoCalculator.vue'
 
 
@@ -36,20 +30,18 @@ const { cryptocurrency, message, error_message, url, cryptoDataIn24, cryptoDataI
     },
 });
 
-const buyCrypto = async (amount) => {
-    try {
-        const response = await axios.post('/buy-crypto', { cryptocurrency: cryptocurrency.id, amount });
-        console.log("DONE!"); // Handle success response
-    } catch (error) {
-        console.error(error); // Handle error
-    }
-};
-
 const cryptoAmount = ref(0);
+
+const usdAmount = ref(0);
 
 // Define a function to update cryptoAmount when cryptoAmountCalculated event is emitted
 const updateCryptoAmount = (amount) => {
   cryptoAmount.value = amount;
+  console.log(amount);
+};
+
+const updateUsdAmount = (amount) => {
+  usdAmount.value = amount;
   console.log(amount);
 };
 </script>
@@ -73,13 +65,12 @@ const updateCryptoAmount = (amount) => {
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-bg overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
-                    <div class="p-6 text-primarytext">{{ cryptocurrency['name'] }} {{ cryptocurrency['priceUsd'] }}</div>
+                    <div class="p-6 text-primarytext">{{ cryptocurrency['name'] }}</div>
 
                 </div>
                 <div class="bg-bg text-primarytext overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg mt-5">
-                    <button @click="buyCrypto(cryptoAmount)">Buy Crypto</button>
                 </div>
-                <CryptoCalculator :exchangeRate="cryptocurrency['priceUsd']" @cryptoAmountChanged="updateCryptoAmount"/>
+                <CryptoCalculator :exchangeRate="cryptocurrency.priceUsd" :cryptocurrency="cryptocurrency" @cryptoAmountChanged="updateCryptoAmount"  @usdAmountChanged="updateUsdAmount"/>
             </div>
         </div>
     </AuthenticatedLayout>
