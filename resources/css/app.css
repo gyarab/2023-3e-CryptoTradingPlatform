@@ -9,7 +9,7 @@
       --color-primarytext: 0 0 0;
       --color-hovertext: 25 25 25;
       --color-secondarytext: 80 80 80;
-      --color-buttonbg: 255 255 255;
+      --color-buttonbg: 168 85 247;
       --color-border: 255 255 255;
       /* ... */
     }
@@ -36,12 +36,12 @@
     }
     :root[data-theme="Light"]{
         --color-bg: 255 255 255;
-        --color-secondarybg: 55 55 55;
+        --color-secondarybg: 240 240 240;
         --color-primarytext: 0 0 0;
+        --color-hovertext: 25 25 25;
         --color-secondarytext: 80 80 80;
-        --color-hovertext: 65 65 65; 
         --color-buttonbg: 168 85 247;
-        --color-border: 200 200 200;
+        --color-border: 255 255 255;
     }
     :root[data-theme="Gemstone"]{
       --color-bg: 255 255 255;

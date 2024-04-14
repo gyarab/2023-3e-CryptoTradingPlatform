@@ -1,11 +1,11 @@
 <template>
-  <div class="p-6 flex flex-col md:flex-row items-center md:justify-between relative">
+  <div class="p-6 bg-secondarybg flex flex-col md:flex-row items-center md:justify-between relative">
     <div class="mb-4 md:mb-0 md:mr-4 text-white md:w-1/2 lg:w-2/3 xl:w-3/4">
       <div class="flex items-center justify-between">
         <div class="flex items-center">
-          <img class="w-24 mr-2 mt-2" :src="currencyImg" :alt="`${name} logo`"> <!-- Adjusted margin-top for the logo -->
+          <img class="w-12 mr-2 mt-2 sm:w-24" :src="currencyImg" :alt="`${name} logo`"> <!-- Adjusted margin-top for the logo -->
           <div>
-            <p class="text-xl md:text-2xl lg:text-3xl font-bold text-center md:text-left">{{ name }}</p>
+            <p class="text-xl md:text-2xl lg:text-3xl font-bold text-center md:text-left text-primarytext">{{ name }}</p>
             <p class="text-secondarytext text-sm md:text-base text-center md:text-left">({{ shortcut }})</p>
           </div>
         </div>
