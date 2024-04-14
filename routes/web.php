@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AddToMyListController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\BuyCryptocurrencyController;
+use App\Http\Controllers\UserBalanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,15 +18,6 @@ use App\Http\Controllers\BuyCryptocurrencyController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-/*Route::get('/', function () {
-    return Inertia::render('Index', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-})->name('index');*/
 
 Route::get('/dashboard/{cryptocurrency?}', [\App\Http\Controllers\CryptoController::class, 'singleCryptoCurrency'])->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -39,5 +32,13 @@ Route::get('/', [\App\Http\Controllers\CryptoController::class, 'displayValues']
 Route::get('dashboard/{cryptocurrency}/buy', [BuyCryptocurrencyController::class, 'displayPurchase'])->name('buyCryptocurrency');
 
 Route::post('/buy-crypto', [BuyCryptocurrencyController::class, 'buyCrypto']);
+
+Route::post('/sell-crypto', [BuyCryptocurrencyController::class, 'sellCrypto']);
+
+Route::post('/add-to-my-list', [AddToMyListController::class, 'addToMyList']);
+
+Route::post('/remove-from-my-list', [AddToMyListController::class, 'removeFromMyList']);
+
+Route::get('/balance', [UserBalanceController::class, 'displayBalance'])->middleware(['auth', 'verified'])->name('balance');
 
 require __DIR__.'/auth.php';

@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('name', 50);
-            $table->float('amount');
+            $table->float('crypto_amount');
+            $table->float('usd_amount');
+            $table->boolean('bought_crypto');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

@@ -58,7 +58,7 @@ defineProps({
                     <span v-else-if="url">
                         
                         <CryptoCurrency 
-                            :name="cryptocurrency['name']"
+                            :cryptocurrencyName="cryptocurrency['name']"
                             :shortcut="cryptocurrency['symbol']" 
                             :priceUsd="cryptocurrency['priceUsd']"
                             :supply="cryptocurrency['supply']"
@@ -67,6 +67,7 @@ defineProps({
                             :changePercent24Hr="cryptocurrency['changePercent24Hr']"
                             :vwap24Hr="cryptocurrency['vwap24Hr']"
                             :currencyImg="'https://cryptologos.cc/logos/' + cryptocurrency['id'] + '-' + cryptocurrency['symbol'].toLowerCase() + '-logo.png?v=029'"
+                            :addedToList=true
                             />
                         <CryptoChart 
                             :dataIn24="cryptoDataIn24"

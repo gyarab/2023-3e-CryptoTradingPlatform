@@ -101,7 +101,7 @@ class CryptoController extends Controller
         return $cryptocurrency_values;
     }
 
-    private function renderDashboard($error_message = null, $cryptocurrency_values = null, $cryptocurrency = null, $cryptoDataIn24 = null, $cryptoDataIn12 = null, $cryptoDataIn1 = null)
+    protected function renderDashboard($error_message = null, $cryptocurrency_values = null, $cryptocurrency = null, $cryptoDataIn24 = null, $cryptoDataIn12 = null, $cryptoDataIn1 = null)
     {
         if($cryptocurrency_values != null)
         {
