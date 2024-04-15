@@ -13,23 +13,22 @@ use App\Models\BuyCryptocurrency;
 class UserBalanceController extends Controller
 {
     function displayBalance() {
+        $userId = Auth::id();
+
+        $userBalance = $this->getData($userId, UserBalance::class);
+        $favouriteCryptoCurrencies = $this->getData($userId, FavouriteCryptoCurrency::class);
+        $userCryptoCurrencies = $this->getData($userId, BuyCryptocurrency::class);
+        $userTrades = $this->getData($userId, Trade::class);
+
         return Inertia::render('Balance', [
+            'balance' => $userBalance,
+            'favouriteCryptoCurrencies' => $favouriteCryptoCurrencies,
+            'userCryptoCurrencies' => $userCryptoCurrencies,
+            'userTrades' => $userTrades,
         ]);
     }
 
-    function getUserBalance() {
-
-    }
-    
-    function getFavouriteCryptoCurrencies() {
-
-    }
-
-    function getUserCryptocurrencies() {
-
-    }
-
-    function getUserTrades() {
-
+    function getData($userId, $model) {
+        return $model::where('user_id', $userId)->get();
     }
 }

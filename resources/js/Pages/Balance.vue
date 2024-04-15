@@ -9,23 +9,17 @@ import { ref } from 'vue';
 import { data } from 'autoprefixer';
 
 defineProps({
-    cryptocurrency: {
-        type: Object,
+    balance: {
+        type: Number
     },
-    error_message: {
-        type: String
+    favouriteCryptoCurrencies: {
+        type: Array
     },
-    url: {
-        type: String
+    userCryptoCurrencies: {
+        type: Array
     },
-    cryptoDataIn24: {
-        type: Object
-    },
-    cryptoDataIn12: {
-        type: Object
-    },
-    cryptoDataIn1: {
-        type: Object
+    userTrades: {
+        type: Array
     },
 });
 
@@ -47,18 +41,27 @@ defineProps({
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
                     <div class="p-6 text-primarytext">
-                        <span>Balance</span>
-                        <p>100 $</p>
+                        <span>Balance:</span> <br>
+                        {{ balance }} $
                     </div>
                 </div>
                 <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
                     <div class="p-6 text-primarytext">Your Crypto Currencies</div>
+                    {{ userCryptoCurrencies }}
                 </div>
                 <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
                     <div class="p-6 text-primarytext">Favourite Crypto Currencies</div>
+                    {{ favouriteCryptoCurrencies }}
                 </div>
                 <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
                     <div class="p-6 text-primarytext">Trades history</div>
+                    {{ userTrades }}
+                    <div v-for="trade in userTrades">
+                        {{ trade['name'] }}
+                        {{ trade['crypto_amount'] }}
+                        {{ trade['usd_amount'] }}
+                        {{ trade['created_at'] }}
+                    </div>
                 </div>
             </div>
         </div>
