@@ -41,13 +41,13 @@ defineProps({
                 <ApplicationLogo class="w-12 h-12"/>
             </div>
             <div>
-                <span>Crypto Trading Platform</span>
+                <span class="text-purple-400">Crypto Trading Platform</span>
             </div>
             <div v-if="canLogin" class="">
                 <Link
                     v-if="$page.props.auth.user"
                     :href="route('dashboard')"
-                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                    class="font-semibold text-secondarytext hover:text-hovertext focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
                     >Dashboard</Link
                 >
 
@@ -79,7 +79,7 @@ defineProps({
                                 <th scope="col" class="px-6 py-3">
                                     Cryptocurrency
                                 </th>
-                                <th scope="col" class="px-6 py-3 hidden md:flex">
+                                <th scope="col" class="px-6 py-3 hidden sm:flex">
                                     Shortcut
                                 </th>
                                 <th scope="col" class="px-6 py-3">
@@ -94,7 +94,7 @@ defineProps({
                                     class="px-6 py-4 font-medium text-primarytext">
                                     {{ currency["name"] }}
                                 </td>
-                                <td class="px-6 py-4 hidden md:flex">
+                                <td class="px-6 py-4 hidden sm:flex">
                                     {{ currency["symbol"] }}
                                 </td>
                                 <td class="px-6 py-4">

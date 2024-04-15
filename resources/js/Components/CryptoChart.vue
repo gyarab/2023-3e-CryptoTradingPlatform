@@ -1,7 +1,7 @@
 <template>
-  <div class="p-6">
+  <div class="p-6 min-h-full w-full bg-secondarybg">
     <DropdownIntervals :selectedInterval="selectedInterval" @update:selectedInterval="handleIntervalChange" />
-    <div>
+    <div class="">
       <canvas ref="cryptoChart"></canvas>
     </div>
   </div>
