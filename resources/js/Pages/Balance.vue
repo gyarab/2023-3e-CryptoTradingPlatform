@@ -48,7 +48,7 @@ defineProps({
                 <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
                     <div class="p-6 text-primarytext">
                         <span>Balance</span>
-                        <p>100 $</p>
+                        <p>100 <span class="text-green-500">$</span></p>
                     </div>
                 </div>
                 <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">

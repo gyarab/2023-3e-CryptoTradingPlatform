@@ -36,7 +36,7 @@ defineProps({
 
     <AuthenticatedLayout>
         <template #header>
-            <div class="md:flex md:items-center md:justify-between bg-secondarybg text-primarytext">
+            <div class="md:flex md:items-center md:justify-between bg-bg text-primarytext">
                 <!-- Header for medium and larger screens -->
                 <h2 class="font-semibold text-xl text-primarytext leading-tight md:mr-4">
                 Crypto Trading Platform

@@ -2,12 +2,12 @@
   <form @submit.prevent="redirectToUserInput">
     <div class="flex items-center text-primarytext">
       <input
-        class="placeholder:text-primarytext p-4 border rounded-md mr-2 w-full bg-secondarybg       "
+        class="placeholder:text-primarytext p-4 border rounded-md mr-2 w-full bg-bg"
         type="text"
         v-model="searchValue"
         placeholder="Search for Crypto..."
       />
-      <button type="submit" class="p-4 bg-purple-500 text-white rounded-md">
+      <PrimaryButton type="submit" class="p-4 py-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -22,13 +22,14 @@
             d="M15 19l-7-7 7-7"
           ></path>
         </svg>
-      </button>
+      </PrimaryButton>
     </div>
   </form>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
 
 const searchValue = ref('');
 
