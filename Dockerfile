@@ -1,14 +1,36 @@
-From php:8.1.6 as php
+# Use the official PHP image
+FROM php:8.1
 
-# Install composer:
-#RUN composer install
-#RUN wget https://raw.githubusercontent.com/composer/getcomposer.org/1b137f8bf6db3e79a38a5bc45324414a6b1f9df2/web/installer -O - -q | php -- --quiet
-#RUN mv composer.phar /usr/local/bin/composer
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
 
-#RUN apt-get update -y
-#RUN apt-get install -y unzip libpq-dev libcurl4-gnutls-dev
-#RUN docker-php-ext-install pdo pdo_mysql bcmath
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-#WORKDIR /cryptoTradingPlatform/app
-#COPY . .
-#RUN COMPOSER_VENDOR_DIR="/cryptoTradingPlatform/vendor" composer install
+# Set the working directory
+WORKDIR /cryptoTradingPlatform
+
+# Copy the composer files
+COPY composer.json composer.lock ./
+
+# Install Composer dependencies in a custom directory
+RUN COMPOSER_VENDOR_DIR="/cryptoTradingPlatform/vendor" composer install --no-scripts --no-autoloader
+
+# Copy the rest of the application files
+COPY . .
+
+# Update paths to autoload files
+RUN sed -i 's/vendor\//..\/vendor\//' public/index.php
+RUN sed -i 's/vendor\//..\/vendor\//' artisan
+RUN sed -i 's/vendor\//..\/vendor\//' phpunit.xml
+
+# Install Composer dependencies (including autoload files)
+RUN composer dump-autoload --optimize
+
+# Expose port if needed
+# EXPOSE 8000
+
+# Command to run the application
+# CMD ["php", "artisan", "serve", "--host=0.0.0.0"]
