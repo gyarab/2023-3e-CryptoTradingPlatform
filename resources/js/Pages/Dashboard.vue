@@ -27,6 +27,12 @@ defineProps({
     cryptoDataIn1: {
         type: Object
     },
+    favourite_cryptocurrency: {
+        type: Boolean
+    },
+    ListOfCurrencies: {
+        type: Object
+    }
 });
 
 </script>
@@ -39,7 +45,7 @@ defineProps({
             <div class="md:flex md:items-center md:justify-between bg-bg text-primarytext">
                 <!-- Header for medium and larger screens -->
                 <h2 class="font-semibold text-xl text-primarytext leading-tight md:mr-4">
-                Crypto Trading Platform
+                Cryptonest
                 </h2>
                 <!-- Search bar section -->
                 <SearchBar />
@@ -49,11 +55,17 @@ defineProps({
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-bg overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
+                <div class="bg-bg mb-4 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
                     <div class="p-6 text-primarytext bg-secondarybg">You're logged in!</div>
-
                 </div>
-                <div class="bg-bg text-primarytext overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg mt-5">
+                <span v-if="ListOfCurrencies">
+                    <div v-for="currency in ListOfCurrencies" class="bg-bg mb-4 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
+                        <div class="p-6 text-primarytext bg-secondarybg">
+                            {{currency}}
+                        </div>
+                    </div>
+                </span>
+                <div v-else class="bg-bg text-primarytext overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg mt-5">
                     <span class="p-6" v-if="error_message">{{ error_message }}</span>
                     <span v-else-if="url">
                         
@@ -67,7 +79,7 @@ defineProps({
                             :changePercent24Hr="cryptocurrency['changePercent24Hr']"
                             :vwap24Hr="cryptocurrency['vwap24Hr']"
                             :currencyImg="'https://cryptologos.cc/logos/' + cryptocurrency['id'] + '-' + cryptocurrency['symbol'].toLowerCase() + '-logo.png?v=029'"
-                            :addedToList=true
+                            :addedToList=favourite_cryptocurrency
                             />
                         <CryptoChart 
                             :dataIn24="cryptoDataIn24"

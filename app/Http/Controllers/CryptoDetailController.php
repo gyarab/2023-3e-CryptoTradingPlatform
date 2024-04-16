@@ -5,37 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Http\Controllers\ProfileController;
+use App\Models\FavouriteCryptoCurrency;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use WisdomDiala\Cryptocap\Facades\Cryptocap;
+use Illuminate\Support\Facades\Auth;
 
 use function Laravel\Prompts\error;
 
-class CryptoController extends Controller
+class CryptoDetailController extends Controller
 {
-    public function displayValues() 
-    {
-        $cryptocurrencies = Cryptocap::getAssetsWithLimit(5);
-        $error_message = null;
-
-        //ošetřit, když nefunguje cryptocap
-        if($cryptocurrencies == null)
-        {
-            $error_message = "No response from api";
-        }   else
-            {
-                $cryptocurrencies = $cryptocurrencies->data;
-            }
-
-        return Inertia::render('Index', [
-            'canLogin' => Route::has('login'),
-            'canRegister' => Route::has('register'),
-            'cryptocurrencies' => $cryptocurrencies,
-            'error_message' => $error_message,
-        ]);
-        //ošetřit, když nepřijdou data
-    }
-
     public function singleCryptoCurrency($cryptocurrency = null) 
     {
 
@@ -61,10 +40,12 @@ class CryptoController extends Controller
         $cryptoDataIn12 = $this->getHistoryData($cryptocurrency, 'm30', 12.5);
         $cryptoDataIn1 = $this->getHistoryData($cryptocurrency, 'm1', 1);
 
-        return $this->renderDashboard(null, $cryptocurrency_values, $cryptocurrency, $cryptoDataIn24, $cryptoDataIn12, $cryptoDataIn1);
+        $favouriteCryptoCurrency = $this->isFavourite($cryptocurrency);
+
+        return $this->renderDashboard(null, $cryptocurrency_values, $cryptocurrency, $cryptoDataIn24, $cryptoDataIn12, $cryptoDataIn1, $favouriteCryptoCurrency);
     }
 
-    private function getHistoryData($cryptocurrency, $interval, $time_period)
+    protected function getHistoryData($cryptocurrency, $interval, $time_period)
     {
         $rawHistoryData = json_decode(json_encode(Cryptocap::getAssetHistory($cryptocurrency, $interval)), true);
         $filteredHistoryData = $this->filterDataForTimeInterval($rawHistoryData, $time_period);
@@ -101,7 +82,22 @@ class CryptoController extends Controller
         return $cryptocurrency_values;
     }
 
-    protected function renderDashboard($error_message = null, $cryptocurrency_values = null, $cryptocurrency = null, $cryptoDataIn24 = null, $cryptoDataIn12 = null, $cryptoDataIn1 = null)
+    private function isFavourite($cryptocurrency) {
+       $existingRecord = FavouriteCryptoCurrency::where('user_id', Auth::id())
+       ->where('name', $cryptocurrency)
+       ->first();
+
+       if($existingRecord) {
+        //it is user's favourite cryptocurrency
+
+        return true;
+       } else {
+
+        return false;
+       }
+    }
+
+    protected function renderDashboard($error_message = null, $cryptocurrency_values = null, $cryptocurrency = null, $cryptoDataIn24 = null, $cryptoDataIn12 = null, $cryptoDataIn1 = null, $favouriteCryptoCurrency = null)
     {
         if($cryptocurrency_values != null)
         {
@@ -114,11 +110,12 @@ class CryptoController extends Controller
             'cryptoDataIn12' => $cryptoDataIn12,
             'cryptoDataIn1' => $cryptoDataIn1,
             'error_message' => $error_message,
+            'favourite_cryptocurrency' => $favouriteCryptoCurrency,
         ]);
     }
 
 
-    private function filterDataForTimeInterval($data, $intervalInHours) 
+    protected function filterDataForTimeInterval($data, $intervalInHours) 
     {
         // Convert interval to milliseconds
         $intervalInMilliseconds = $intervalInHours * 60 * 60 * 1000;

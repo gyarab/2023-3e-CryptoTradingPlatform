@@ -8,9 +8,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\BuyCryptocurrency;
 use App\Models\UserBalance;
 use App\Models\Trade;
+use App\Http\Controllers\CryptoDetailController;
 
 
-class BuyCryptocurrencyController extends CryptoController
+class BuyCryptocurrencyController extends CryptoDetailController
 {    //delete white spaces in cryptocalculator
     function displayPurchase($cryptocurrency) {
         $cryptocurrency_values = $this->getCryptoCurrencyValues($cryptocurrency)->data;

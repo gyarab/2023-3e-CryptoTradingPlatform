@@ -38,10 +38,10 @@ defineProps({
       
         <div class="text-primarytext sticky flex  justify-between border-b border-border p-2 left-0 right-0 top-0 bg-bg"><!--Header-->
             <div>
-                <ApplicationLogo class="w-12 h-12"/>
+                <ApplicationLogo class="w-16 h-16"/>
             </div>
             <div>
-                <span class="text-purple-400">Crypto Trading Platform</span>
+                <span class="text-purple-400">Cryptonest</span>
             </div>
             <div v-if="canLogin" class="">
                 <Link
@@ -66,7 +66,7 @@ defineProps({
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4"><!--Content-->
         
             <div>
-                <h1 class="lg:text-6xl sm:text-5xl text-primarytext">Welcome to Trade Crypto</h1> <br>
+                <h1 class="text-primary text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">Welcome to Trade Crypto</h1>
                 <p class="text-4xl">Learn how to trade!!!</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam fuga quod rerum illo alias voluptates, reiciendis ab earum illum incidunt, repellendus, dignissimos esse tenetur rem distinctio dolore quisquam sapiente vitae quae? Molestias sit quos, unde nulla quo nemo quam odit earum eaque odio fuga explicabo, ducimus officiis rem, reprehenderit reiciendis!</p>
             </div>

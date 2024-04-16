@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\BuyCryptocurrencyController;
 use App\Http\Controllers\UserBalanceController;
+use App\Http\Controllers\CryptoDetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,9 @@ use App\Http\Controllers\UserBalanceController;
 |
 */
 
-Route::get('/dashboard/{cryptocurrency?}', [\App\Http\Controllers\CryptoController::class, 'singleCryptoCurrency'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard/{cryptocurrency}', [\App\Http\Controllers\CryptoDetailController::class, 'singleCryptoCurrency'])->middleware(['auth', 'verified'])->name('dashboard-search');
+
+Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'renderDashboard2'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -27,7 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/', [\App\Http\Controllers\CryptoController::class, 'displayValues'])->name('index');
+Route::get('/', [\App\Http\Controllers\IndexController::class, 'renderIndex'])->name('index');
 
 Route::get('dashboard/{cryptocurrency}/buy', [BuyCryptocurrencyController::class, 'displayPurchase'])->name('buyCryptocurrency');
 
