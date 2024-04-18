@@ -23,6 +23,9 @@ defineProps({
     userTrades: {
         type: Array
     },
+    currenciesInfo: {
+        type: Array
+    }
 });
 </script>
 
@@ -62,6 +65,12 @@ export default {
         
         <div class="py-12 text-primarytext">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
+                    <div class="p-6">
+                        <span>Info of favourite cryptocurrencies</span> <br>
+                       {{ currenciesInfo }}
+                    </div>    
+                </div>
                 <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
                     <div class="p-6">
                         <span>Balance:</span> <br>
