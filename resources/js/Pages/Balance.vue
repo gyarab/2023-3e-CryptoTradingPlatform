@@ -37,30 +37,44 @@ defineProps({
             </div>
         </template>
         
-        <div class="py-12">
+        <div class="py-12 text-primarytext">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
-                    <div class="p-6 text-primarytext">
+                    <div class="p-6">
                         <span>Balance:</span> <br>
-                        {{ balance }} $
+                        <div v-for="dollar in balance">
+                            <span class="text-green-500">$</span>
+                            {{ dollar['balance'] }} 
+                        </div>
                     </div>
                 </div>
                 <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
-                    <div class="p-6 text-primarytext">Your Crypto Currencies</div>
-                    {{ userCryptoCurrencies }}
+                    <div class="p-6">
+                        <span>Your Crypto Currencies:</span> <br>
+                        <div class="text-xl" v-for="cryptoOwned in userCryptoCurrencies">
+                            {{ cryptoOwned['name'] }}
+                            {{ cryptoOwned['amount'] }}
+                        </div>
+                    </div>    
                 </div>
                 <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
-                    <div class="p-6 text-primarytext">Favourite Crypto Currencies</div>
-                    {{ favouriteCryptoCurrencies }}
+                    <div class="p-6">
+                        <span>Favourite Crypto Currencies:</span> <br>
+                        <div class="text-xl mx-" v-for="listedCrypto in favouriteCryptoCurrencies">
+                            {{ listedCrypto['name'] }}
+                        </div>
+                    </div>    
                 </div>
                 <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
-                    <div class="p-6 text-primarytext">Trades history</div>
-                    {{ userTrades }}
-                    <div v-for="trade in userTrades">
-                        {{ trade['name'] }}
-                        {{ trade['crypto_amount'] }}
-                        {{ trade['usd_amount'] }}
-                        {{ trade['created_at'] }}
+                    <div class="p-6">
+                        <span>Trades history:</span> <br>
+                        <div v-for="trade in userTrades">
+                            {{ trade['name'] }}
+                            {{ trade['crypto_amount'] }}
+                            <span class="text-green-500">$</span>
+                            {{ trade['usd_amount'] }}
+                            {{ trade['created_at'] }}
+                        </div>    
                     </div>
                 </div>
             </div>
