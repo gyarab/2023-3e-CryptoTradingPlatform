@@ -5,8 +5,10 @@ import CryptoCurrency from '@/Components/CryptoCurrency.vue';
 import SearchBar from '@/Components/SearchBar.vue';
 import CryptoChart from '@/Components/CryptoChart.vue';
 import DropdownIntervals from '@/Components/DropdownIntervals.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
 import { ref } from 'vue';
 import { data } from 'autoprefixer';
+import { timestamp } from '@vueuse/core';
 
 defineProps({
     balance: {
@@ -22,6 +24,27 @@ defineProps({
         type: Array
     },
 });
+</script>
+
+<script>
+const formatTimestamp = (timestamp) => {
+    const date = new Date(timestamp);
+    return date.toLocaleString();
+};
+
+export default {
+  data() {
+    return {
+      isVisible: false // Initially, the div is hidden
+    };
+  },
+  methods: {
+    toggleVisibility() {
+      // Toggle the visibility state of the div
+      this.isVisible = !this.isVisible;
+    }
+  }
+};
 
 </script>
 
@@ -66,14 +89,20 @@ defineProps({
                     </div>    
                 </div>
                 <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
-                    <div class="p-6">
-                        <span>Trades history:</span> <br>
-                        <div v-for="trade in userTrades">
-                            {{ trade['name'] }}
-                            {{ trade['crypto_amount'] }}
-                            <span class="text-green-500">$</span>
-                            {{ trade['usd_amount'] }}
-                            {{ trade['created_at'] }}
+                    <div class="p-6 relative">
+                        <span>Trades history:</span> 
+                        <PrimaryButton @click="toggleVisibility" class="absolute right-0 mx-4">
+                            SHOW
+                        </PrimaryButton>
+                        <br>
+                        <div v-if="isVisible">
+                            <div v-for="trade in userTrades">
+                                {{ trade['name'] }}
+                                {{ trade['crypto_amount'] }}
+                                <span class="text-green-500">$</span>{{ trade['usd_amount'] }}
+                            
+                                {{ formatTimestamp(trade['created_at']) }}
+                            </div>
                         </div>    
                     </div>
                 </div>
