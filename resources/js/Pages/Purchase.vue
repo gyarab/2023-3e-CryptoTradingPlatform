@@ -67,7 +67,7 @@ const updateUsdAmount = (amount) => {
                 <div class="bg-secondarybg overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg p-2">
                     <img :src="'https://cryptologos.cc/logos/' + cryptocurrency['id'] + '-' + cryptocurrency['symbol'].toLowerCase() + '-logo.png?v=029'" class=" w-12 inline-flex ">
                     <div class="p-6 text-primarytext inline">{{ cryptocurrency['name'] }}</div>
-
+                    
                 </div>
                 <div class="bg-bg text-primarytext overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg mt-5">
                 </div>

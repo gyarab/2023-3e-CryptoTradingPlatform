@@ -67,12 +67,6 @@ export default {
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
                     <div class="p-6">
-                        <span>Info of favourite cryptocurrencies</span> <br>
-                       {{ currenciesInfo }}
-                    </div>    
-                </div>
-                <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
-                    <div class="p-6">
                         <span>Balance:</span> <br>
                         <div v-for="dollar in balance">
                             <span class="text-green-500">$</span>
@@ -84,16 +78,17 @@ export default {
                     <div class="p-6">
                         <span>Your Crypto Currencies:</span> <br>
                         <div class="text-xl" v-for="cryptoOwned in userCryptoCurrencies">
-                            {{ cryptoOwned['name'] }}
-                            {{ cryptoOwned['amount'] }}
+                            {{ cryptoOwned['name'].charAt(0).toUpperCase() + cryptoOwned['name'].slice(1) }}
+                            {{ cryptoOwned['amount'] }}<span class="text-secondarytext">{{ cryptoOwned['symbol'] }}</span>
                         </div>
                     </div>    
                 </div>
                 <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
                     <div class="p-6">
                         <span>Favourite Crypto Currencies:</span> <br>
-                        <div class="text-xl mx-" v-for="listedCrypto in favouriteCryptoCurrencies">
-                            {{ listedCrypto['name'] }}
+                        <div class="text-xl my-4" v-for="listedCrypto in favouriteCryptoCurrencies">
+                            <img class="w-12 inline" :src="'https://cryptologos.cc/logos/' + listedCrypto['name'].toLowerCase() + '-' + listedCrypto['symbol'].toLowerCase() + '-logo.png?v=029'">
+                            {{ listedCrypto['name'].charAt(0).toUpperCase() + listedCrypto['name'].slice(1) }}
                         </div>
                     </div>    
                 </div>
@@ -106,9 +101,9 @@ export default {
                         <br>
                         <div v-if="isVisible">
                             <div v-for="trade in userTrades">
-                                {{ trade['name'] }}
-                                {{ trade['crypto_amount'] }}
-                                <span class="text-green-500">$</span>{{ trade['usd_amount'] }}
+                                {{ trade['name'].charAt(0).toUpperCase()+trade['name'].slice(1) }}
+                                {{ trade['crypto_amount'] }}<span class="text-secondarytext">{{ trade['symbol'] }}</span>
+                                <span class="text-green-500"> $</span>{{ trade['usd_amount'] }}
                             
                                 {{ formatTimestamp(trade['created_at']) }}
                             </div>
