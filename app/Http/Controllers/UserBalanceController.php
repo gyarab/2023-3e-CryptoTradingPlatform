@@ -23,9 +23,9 @@ class UserBalanceController extends Controller
         $userTrades = $this->getData($userId, Trade::class);
         $currenciesInfo = array();
 
-        foreach($favouriteCryptoCurrencies as $key => $currency) {
-            $currenciesInfo[] = $this->cryptoCurrencyInfo($currency->name);
-        }
+        $favouriteCryptoCurrencies = $this->addToArray($favouriteCryptoCurrencies, 'symbol');
+        $userCryptoCurrencies = $this->addToArray($userCryptoCurrencies, 'symbol');
+        $userTrades = $this->addToArray($userTrades, 'symbol');
 
         return Inertia::render('Balance', [
             'balance' => $userBalance,
@@ -42,5 +42,17 @@ class UserBalanceController extends Controller
 
     function cryptoCurrencyInfo($cryptocurrency) {
         return Cryptocap::getSingleAsset($cryptocurrency);
+    }
+
+    function addToArray($array, $param1, $param2 = null) {
+
+        foreach ($array as $key => $currency) {
+            $info = $this->cryptoCurrencyInfo($currency->name)->data;
+    
+            $array[$key]->$param1 = $info->$param1;
+            //$array[$key]->$param2 = $info->$param2;
+        }
+
+        return $array;
     }
 }
