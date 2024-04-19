@@ -20,7 +20,7 @@ class DashboardController extends CryptoDetailController
         $ListOfCurrencies = [];
 
         foreach ($favouriteCryptoCurrencies as $key => $favouriteCryptoCurrency) {
-            $ListOfCurrencies[] = $this->createObject($favouriteCryptoCurrency->name)->values->data;
+            $ListOfCurrencies[] = $this->createObject($favouriteCryptoCurrency->name);
         }
 
         return Inertia::render('Dashboard', [

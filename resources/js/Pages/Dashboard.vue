@@ -4,6 +4,7 @@ import { Head } from '@inertiajs/vue3';
 import CryptoCurrency from '@/Components/CryptoCurrency.vue';
 import SearchBar from '@/Components/SearchBar.vue';
 import CryptoChart from '@/Components/CryptoChart.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue'
 import DropdownIntervals from '@/Components/DropdownIntervals.vue';
 import { ref } from 'vue';
 import { data } from 'autoprefixer';
@@ -34,7 +35,6 @@ defineProps({
         type: Object
     }
 });
-
 </script>
 
 <template>
@@ -61,14 +61,35 @@ defineProps({
                 <span v-if="ListOfCurrencies">
                     <div v-for="currency in ListOfCurrencies" class="bg-bg mb-4 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
                         <div class="p-6 text-primarytext bg-secondarybg">
-                            {{currency}}
+                            <CryptoCurrency 
+                            :cryptocurrencyName="currency['values']['data']['name']"
+                            :shortcut="currency['values']['data']['symbol']" 
+                            :priceUsd="currency['values']['data']['priceUsd']"
+                            :supply="currency['values']['data']['supply']"
+                            :maxSupply="currency['values']['data']['maxSupply']"
+                            :volumeUsd24Hr="currency['values']['data']['volumeUsd24Hr']"
+                            :changePercent24Hr="currency['values']['data']['changePercent24Hr']"
+                            :vwap24Hr="currency['values']['data']['vwap24Hr']"
+                            :currencyImg="'https://cryptologos.cc/logos/' + currency['values']['data']['id'] + '-' + currency['values']['data']['symbol'].toLowerCase() + '-logo.png?v=029'"
+                            :addedToList=true
+                            />
+
+                            <PrimaryButton @click="toggleVisibility(currency)" class="mx-4">
+                                {{ currency.showChart ? 'HIDE Chart' : 'SHOW Chart' }}
+                            </PrimaryButton>
+
+                            <CryptoChart v-if="currency.showChart"
+                            :dataIn24="currency['data24']"
+                            :dataIn12="currency['data12']"
+                            :dataIn1="currency['data1']"
+                            :name="currency['name']"
+                        />
                         </div>
                     </div>
                 </span>
                 <div v-else class="bg-bg text-primarytext overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg mt-5">
                     <span class="p-6" v-if="error_message">{{ error_message }}</span>
                     <span v-else-if="url">
-                        
                         <CryptoCurrency 
                             :cryptocurrencyName="cryptocurrency['name']"
                             :shortcut="cryptocurrency['symbol']" 
@@ -93,3 +114,20 @@ defineProps({
         </div>
     </AuthenticatedLayout>
 </template>
+
+<script>
+
+    export default {
+    data() {
+        return {
+            showChart: false
+        };
+    },
+    methods: {
+        toggleVisibility(currency) {
+            currency.showChart = !currency.showChart;
+        }
+    }
+};
+
+</script>
