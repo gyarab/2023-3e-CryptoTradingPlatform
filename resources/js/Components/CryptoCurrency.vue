@@ -11,12 +11,12 @@
         </div>
       </div>
       <div class="text-left">
-        <p class="text-primarytext">Supply: <span class="font-bold text-lg">{{ parseFloat(supply).toFixed(3) }}</span></p>
-        <p class="text-primarytext">Max Supply: <span class="font-bold text-lg">{{ parseFloat(maxSupply) }}</span></p>
-        <p class="text-primarytext">Volume (24Hr): <span class="font-bold text-lg">{{ parseFloat(volumeUsd24Hr).toFixed(3) }}</span></p>
-        <p class="text-primarytext">Change (24Hr): <span class="font-bold text-lg">{{ parseFloat(changePercent24Hr).toFixed(3) }} %</span></p>
-        <p class="text-primarytext">VWAP (24Hr): <span class="font-bold text-lg">{{ parseFloat(vwap24Hr).toFixed(3) }}</span></p>
-        <p class="text-primarytext">Value in USD: <span class="font-bold text-lg">${{ parseFloat(priceUsd).toFixed(3) }}</span></p>
+        <p class="text-primarytext">Supply: <span class="font-bold text-lg">{{ parseFloat(supply).toFixed(3) }}  <span class="text-gray-400">{{ shortcut }}</span></span></p>
+        <p v-if="maxSupply" class="text-primarytext">Max Supply: <span class="font-bold text-lg">{{ parseFloat(maxSupply) }} <span class="text-gray-400">{{ shortcut }}</span></span></p>
+        <p class="text-primarytext">Volume (24Hr): <span class="font-bold text-lg">{{ parseFloat(volumeUsd24Hr).toFixed(3) }} <span class="text-green-500"> $</span></span></p>
+        <p class="text-primarytext">Change (24Hr): <span v-if="changePercent24Hr>0" class="font-bold text-lg text-green-500">{{ parseFloat(changePercent24Hr).toFixed(3) }} %</span> <span v-else class="font-bold text-lg text-red-500">{{ parseFloat(changePercent24Hr).toFixed(3) }} %</span></p>
+        <p class="text-primarytext">VWAP (24Hr): <span class="font-bold text-lg">{{ parseFloat(vwap24Hr).toFixed(3) }}<span class="text-green-500"> $</span></span></p>
+        <p class="text-primarytext">Value in USD: <span class="font-bold text-lg">{{ parseFloat(priceUsd).toFixed(3) }} <span class="text-green-500"> $</span></span></p>
       </div>
     </div>
 

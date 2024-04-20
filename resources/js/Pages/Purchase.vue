@@ -3,7 +3,9 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import SearchBar from '@/Components/SearchBar.vue';
 import { ref } from 'vue';
-import CryptoCalculator from '@/Components/CryptoCalculator.vue'
+import CryptoCalculator from '@/Components/CryptoCalculator.vue';
+import ToggleButton from '@/Components/ToggleButton.vue';
+import LinkCrypto from '@/Components/LinkCrypto.vue'
 
 
 const { cryptocurrency, message, error_message, url, cryptoDataIn24, cryptoDataIn12, cryptoDataIn1 } = defineProps({
@@ -65,13 +67,12 @@ const updateUsdAmount = (amount) => {
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-secondarybg overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg p-2">
-                    <img :src="'https://cryptologos.cc/logos/' + cryptocurrency['id'] + '-' + cryptocurrency['symbol'].toLowerCase() + '-logo.png?v=029'" class=" w-12 inline-flex ">
-                    <div class="p-6 text-primarytext inline">{{ cryptocurrency['name'] }}</div>
-                    
+                    <LinkCrypto :cryptocurrency="cryptocurrency"/>
                 </div>
                 <div class="bg-bg text-primarytext overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg mt-5">
                 </div>
                 <CryptoCalculator :exchangeRate="cryptocurrency.priceUsd" :cryptocurrency="cryptocurrency" @cryptoAmountChanged="updateCryptoAmount"  @usdAmountChanged="updateUsdAmount"/>
+                <ToggleButton :textBefore="'BuyCrypto'" :textAfter="'Bought Succesfully'"/>
             </div>
         </div>
     </AuthenticatedLayout>

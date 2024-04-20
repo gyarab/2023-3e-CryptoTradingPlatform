@@ -24,6 +24,8 @@ class UserBalanceController extends Controller
         $currenciesInfo = array();
 
         $favouriteCryptoCurrencies = $this->addToArray($favouriteCryptoCurrencies, 'symbol');
+        $favouriteCryptoCurrencies = $this->addToArray($favouriteCryptoCurrencies, 'priceUsd');
+        $favouriteCryptoCurrencies = $this->addToArray($favouriteCryptoCurrencies, 'changePercent24Hr');
         $userCryptoCurrencies = $this->addToArray($userCryptoCurrencies, 'symbol');
         $userTrades = $this->addToArray($userTrades, 'symbol');
 
@@ -44,12 +46,12 @@ class UserBalanceController extends Controller
         return Cryptocap::getSingleAsset($cryptocurrency);
     }
 
-    function addToArray($array, $param1, $param2 = null) {
+    function addToArray($array, $param) {
 
         foreach ($array as $key => $currency) {
             $info = $this->cryptoCurrencyInfo($currency->name)->data;
     
-            $array[$key]->$param1 = $info->$param1;
+            $array[$key]->$param = $info->$param;
             //$array[$key]->$param2 = $info->$param2;
         }
 

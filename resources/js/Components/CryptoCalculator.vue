@@ -17,17 +17,20 @@
            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-border rounded-md bg-bg text-primarytext">
     
     <!-- Button to Buy/Sell Crypto -->
-    <button @click="performTransaction" class="mt-4 px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
-      {{ mode === 'buy' ? 'Buy Crypto' : 'Sell Crypto' }}
-    </button>
+    <ToggleButton @click="buyCrypto" v-if="mode === 'buy'" :textBefore="'Buy Crypto'" :textAfter="'Bought Succesfully'"/>
+    <ToggleButton @click="sellCrypto" v-else :textBefore="'Sell Crypto'" :textAfter="'Sold Succesfully'"/>
   </div>
 </template>
 
 <script>
 import { watchEffect } from 'vue'; // Import watchEffect from Vue
 import axios from 'axios';
+import ToggleButton from '@/Components/ToggleButton.vue';
 
 export default {
+  components: {
+    ToggleButton,
+  },
   data() {
     return {
       usdAmount: 0,
@@ -68,17 +71,6 @@ export default {
       // Reset input fields when switching modes
       this.usdAmount = '';
       this.cryptoAmount = '';
-    },
-    async performTransaction() {
-      try {
-        if (this.mode === 'buy') {
-          await this.buyCrypto();
-        } else {
-          await this.sellCrypto();
-        }
-      } catch (error) {
-        console.error(error); // Handle error
-      }
     },
     async buyCrypto() {
       const response = await axios.post('/buy-crypto', {
