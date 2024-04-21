@@ -47,7 +47,10 @@ export default {
   // Insert a space after every three numeric characters from the end
   let formattedString = numberString.replace(/\d{1,3}(?=(\d{3})+(?!\d))/g, '$& ');
   return formattedString;
-}
+    },
+    capitalizeFirstLetter(name){
+        return name.charAt(0).toUpperCase() + name.slice(1);
+    }
   }
 };
 
@@ -80,7 +83,7 @@ export default {
                     <div class="p-6">
                         <span>Your Crypto Currencies:</span> <br>
                         <div class="text-xl" v-for="cryptoOwned in userCryptoCurrencies">
-                            {{ cryptoOwned['name'].charAt(0).toUpperCase() + cryptoOwned['name'].slice(1) }}
+                            {{ capitalizeFirstLetter(cryptoOwned['name']) }}
                             {{ cryptoOwned['amount'] }}<span class="text-secondarytext">{{ cryptoOwned['symbol'] }}</span>
                         </div>
                     </div>    
@@ -125,7 +128,7 @@ export default {
                                     <tr
                                         v-for="trade in userTrades">
                                         <td scope="row" class="px-6 py-4 border-border border-b">
-                                            {{ trade['name'].charAt(0).toUpperCase() + trade['name'].slice(1) }}
+                                            {{ capitalizeFirstLetter(trade['name']) }}
                                         </td>
                                         <td scope="row" class="px-6 py-4 text-green-500 border-border border-b hidden sm:table-cell"
                                             v-if="trade['bought_crypto']">
