@@ -66,13 +66,10 @@ const updateUsdAmount = (amount) => {
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-secondarybg overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg p-2">
+                <div class="bg-secondarybg overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg p-2 mb-12">
                     <LinkCrypto :cryptocurrency="cryptocurrency"/>
                 </div>
-                <div class="bg-bg text-primarytext overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg mt-5">
-                </div>
                 <CryptoCalculator :exchangeRate="cryptocurrency.priceUsd" :cryptocurrency="cryptocurrency" @cryptoAmountChanged="updateCryptoAmount"  @usdAmountChanged="updateUsdAmount"/>
-                <ToggleButton :textBefore="'BuyCrypto'" :textAfter="'Bought Succesfully'"/>
             </div>
         </div>
     </AuthenticatedLayout>
