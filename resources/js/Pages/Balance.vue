@@ -39,7 +39,15 @@ export default {
     toggleVisibility() {
       // Toggle the visibility state of the div
       this.isVisible = !this.isVisible;
-    }
+    },
+
+    formatNumber(number) {
+  // Convert number to string
+  let numberString = number.toString();
+  // Insert a space after every three numeric characters from the end
+  let formattedString = numberString.replace(/\d{1,3}(?=(\d{3})+(?!\d))/g, '$& ');
+  return formattedString;
+}
   }
 };
 
@@ -61,16 +69,10 @@ export default {
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
                     <div class="p-6">
-                        <span>Info of favourite cryptocurrencies</span> <br>
-                       {{ currenciesInfo }}
-                    </div>    
-                </div>
-                <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
-                    <div class="p-6">
                         <span>Balance:</span> <br>
                         <div v-for="dollar in balance">
                             <span class="text-green-500">$</span>
-                            {{ dollar['balance'] }} 
+                            {{ formatNumber(dollar['balance']) }}
                         </div>
                     </div>
                 </div>
@@ -78,8 +80,8 @@ export default {
                     <div class="p-6">
                         <span>Your Crypto Currencies:</span> <br>
                         <div class="text-xl" v-for="cryptoOwned in userCryptoCurrencies">
-                            {{ cryptoOwned['name'] }}
-                            {{ cryptoOwned['amount'] }}
+                            {{ cryptoOwned['name'].charAt(0).toUpperCase() + cryptoOwned['name'].slice(1) }}
+                            {{ cryptoOwned['amount'] }}<span class="text-secondarytext">{{ cryptoOwned['symbol'] }}</span>
                         </div>
                     </div>    
                 </div>
@@ -97,17 +99,59 @@ export default {
                     <div class="p-6 relative">
                         <span>Trades history:</span> 
                         <PrimaryButton @click="toggleVisibility" class="absolute right-0 mx-4">
-                            SHOW
+                            {{ isVisible ? 'HIDE' : 'SHOW' }}
                         </PrimaryButton>
                         <br>
                         <div v-if="isVisible">
-                            <div v-for="trade in userTrades">
-                                {{ trade['name'] }}
-                                {{ trade['crypto_amount'] }}
-                                <span class="text-green-500">$</span>{{ trade['usd_amount'] }}
-                            
-                                {{ formatTimestamp(trade['created_at']) }}
-                            </div>
+                            <table class="border-none min-w-full text-left text-sm font-light rounded-lg bg-bg text-primarytext">
+                                <thead class="border-none border-b-2 border-border font-medium text-xs uppercase">
+                                    <th scope="col" class="px-6 py-3 border-border border-b-2">
+                                        CryptoCurrency
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 border-border border-b-2 hidden sm:table-cell">
+                                        Side
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 border-border border-b-2">
+                                        Quantity
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 border-border border-b-2">
+                                        Price
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 border-border border-b-2 hidden sm:table-cell">
+                                        Update
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr
+                                        v-for="trade in userTrades">
+                                        <td scope="row" class="px-6 py-4 border-border border-b">
+                                            {{ trade['name'].charAt(0).toUpperCase() + trade['name'].slice(1) }}
+                                        </td>
+                                        <td scope="row" class="px-6 py-4 text-green-500 border-border border-b hidden sm:table-cell"
+                                            v-if="trade['bought_crypto']">
+                                            Buy
+                                        </td>
+                                        <td scope="row" class="px-6 py-4 text-red-600 border-border border-b hidden sm:table-cell"
+                                            v-else>
+                                            Sell
+                                        </td>
+                                        <td scope="row" class="px-6 py-4 text-green-500 border-border border-b"
+                                            v-if="trade['bought_crypto']">
+                                            {{ trade['crypto_amount'] }}
+                                        </td>
+                                        <td scope="row" class="px-6 py-4 text-red-600 border-border border-b"
+                                            v-else>
+                                            {{ trade['crypto_amount'] }}
+                                        </td>
+                                        <td scope="row" class="px-6 py-4 border-border border-b">
+                                            {{ trade['usd_amount'] }}
+                                        </td>
+                                        <td scope= "row" class="px-6 py-4 border-border border-b hidden sm:table-cell">
+                                            {{ formatTimestamp(trade['created_at']) }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>    
                     </div>
                 </div>

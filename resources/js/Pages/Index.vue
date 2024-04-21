@@ -79,7 +79,7 @@ defineProps({
                                 <th scope="col" class="px-6 py-3">
                                     Cryptocurrency
                                 </th>
-                                <th scope="col" class="px-6 py-3 hidden sm:flex">
+                                <th scope="col" class="px-6 py-3 hidden sm:table-cell">
                                     Shortcut
                                 </th>
                                 <th scope="col" class="px-6 py-3">
@@ -94,7 +94,7 @@ defineProps({
                                     class="px-6 py-4 font-medium text-primarytext">
                                     {{ currency["name"] }}
                                 </td>
-                                <td class="px-6 py-4 hidden sm:flex">
+                                <td class="px-6 py-4 hidden sm:table-cell">
                                     {{ currency["symbol"] }}
                                 </td>
                                 <td class="px-6 py-4">
