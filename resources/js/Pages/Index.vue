@@ -10,6 +10,7 @@ import InputLabel from '@/Components/InputLabel.vue';
 import InputError from '@/Components/InputError.vue';
 import Checkbox from '@/Components/Checkbox.vue';
 import DangerButton from '@/Components/DangerButton.vue';
+import faq from '@/Components/faq.vue';
 
 defineProps({
     canLogin: {
@@ -66,13 +67,12 @@ defineProps({
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4"><!--Content-->
         
             <div>
-                <h1 class="text-primary text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">Welcome to Trade Crypto</h1>
-                <p class="text-4xl">Learn how to trade!!!</p>
+                <h1 class="text-primary text-4xl">Welcome to Cryptonest</h1>
+                <p class="text-3xl">Learn how to trade!!!</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam fuga quod rerum illo alias voluptates, reiciendis ab earum illum incidunt, repellendus, dignissimos esse tenetur rem distinctio dolore quisquam sapiente vitae quae? Molestias sit quos, unde nulla quo nemo quam odit earum eaque odio fuga explicabo, ducimus officiis rem, reprehenderit reiciendis!</p>
             </div>
 
             <div class="justify-center overflow-x-auto shadow-md sm:rounded-lg">
-                <div>
                     <table class="border-none min-w-full text-left text-sm font-light rounded-lg bg-secondarybg">
                         <thead class="border-none border-b font-medium text-xs uppercase">
                             <tr>
@@ -103,9 +103,10 @@ defineProps({
                             </tr>
                         </tbody>
                     </table>
-                </div>
             </div>
-
+            <faq
+            question="Question?"
+            answer="answer"></faq>
         </div>
     </div>
     </div>

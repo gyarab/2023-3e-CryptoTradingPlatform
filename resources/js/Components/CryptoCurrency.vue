@@ -1,6 +1,6 @@
 <template>
   <div class="p-6 bg-secondarybg flex flex-col md:flex-row items-center md:justify-between relative">
-    <div class="mb-4 md:mb-0 md:mr-4 text-white md:w-1/2 lg:w-2/3 xl:w-3/4">
+    <div class="mb-4 md:mb-0 md:mr-4 text-primarytext md:w-1/2 lg:w-2/3 xl:w-3/4">
       <div class="flex items-center justify-between">
         <div class="flex items-center">
           <img class="w-12 mr-2 mt-2 sm:w-24" :src="currencyImg" :alt="`${cryptocurrencyName} logo`"> <!-- Adjusted margin-top for the logo -->
@@ -22,7 +22,7 @@
 
     <AddToMyListButton :cryptocurrencyName="cryptocurrencyName" :addedToList="addedToList" />
 
-    <div class="text-white md:w-1/2 lg:w-1/3 xl:w-1/4">
+    <div class="text-primarytext md:w-1/2 lg:w-1/3 xl:w-1/4">
         <div class="mb-4 text-center md:text-left">
           <p class="text-gray-600 text-sm md:text-base">Buy 1 {{ cryptocurrencyName }}</p>
           <p class="text-2xl md:text-3xl font-bold"><span class="text-green-500">$</span>{{ parseFloat(priceUsd).toFixed(3) }}</p>
