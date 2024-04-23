@@ -7,7 +7,7 @@ function change(theme) {
     document.documentElement.setAttribute('data-theme', theme)
 }
 
-const themes = ["Light", "Dark", "Modern", "Pro"];
+const themes = ["Light", "Dark", "High Contrast"];
 </script>
 
 <template>

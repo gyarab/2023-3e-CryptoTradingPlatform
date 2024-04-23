@@ -22,23 +22,23 @@ export default {
 </script>
 
 <template>
-  <div class="p-6 bg-secondarybg flex flex-col md:justify-between relative my-2 rounded-md">
-    <div class="mb-4 md:mb-0 md:mr-4 text-primarytext md:w-1/2 lg:w-2/3 xl:w-3/4 relative">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center">
-          <p class="text-xl font-bold inline-block absolute left-0">
-            {{ question }}
-          </p>
-          <button @click="toggleVisibility" class="absolute right-0 bg-inherit rounded-full p-2 inline focus:bg-buttonbg">
-            {{ isVisible ? '-' : '+' }}
-          </button>
-          <div v-if="isVisible" class="block p-2">
-            <p class="text-lg text-secondarytext">
-              {{ answer }}
-            </p>
-          </div>
-        </div>
+<div class="p-6 bg-secondarybg flex flex-col md:justify-between my-2 rounded-md w-full shadow-md">
+  <div class="text-primarytext relative">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center w-full">
+        <p class="text-xl font-bold inline-block mr-2">
+          {{ question }}
+        </p>
+        <button @click="toggleVisibility" class="bg-inherit rounded-full p-2 inline-flex items-center justify-center focus:bg-buttonbg font-bold text-xl ml-auto" style="width: 2.5rem; height: 2.5rem;">
+          {{ isVisible ? '-' : '+' }}
+        </button>
       </div>
     </div>
+    <div v-if="isVisible" class="p-2 mt-4">
+      <p class="text-lg text-secondarytext block ml-2">
+        {{ answer }}
+      </p>
+    </div>
   </div>
+</div>
 </template>

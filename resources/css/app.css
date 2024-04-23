@@ -19,7 +19,7 @@
             --color-bg: 40 40 40;
             --color-secondarybg: 55 55 55;
             --color-primarytext: 255 255 255;
-            --color-secondarytext: 175 175 175;
+            --color-secondarytext: 200 200 200;
             --color-hovertext: 220 220 220;
             --color-focustext: 195 195 195;
             --color-buttonbg: 168 85 247;
@@ -28,13 +28,13 @@
           }
     }
     :root[data-theme="Dark"]{
-        --color-bg: 25 25 25;
-        --color-secondarybg: 40 40 40;
+        --color-bg: 40 40 40;
+        --color-secondarybg: 55 55 55;
         --color-primarytext: 255 255 255;
-        --color-secondarytext: 175 175 175;
+        --color-secondarytext: 200 200 200;
         --color-hovertext: 220 220 220;
         --color-focustext: 195 195 195;
-        --color-buttonbg: 153 70 232;
+        --color-buttonbg: 168 85 247;
         --color-border: 117 112 112;
     }
     :root[data-theme="Light"]{
@@ -46,5 +46,15 @@
         --color-focustext: 50 50 50;
         --color-buttonbg: 168 85 247;
         --color-border: 255 255 255;
+    }
+    :root[data-theme="High Contrast"]{
+        --color-bg: 25 25 25;
+        --color-secondarybg: 40 40 40;
+        --color-primarytext: 255 255 255;
+        --color-secondarytext: 175 175 175;
+        --color-hovertext: 220 220 220;
+        --color-focustext: 195 195 195;
+        --color-buttonbg: 153 70 232;
+        --color-border: 117 112 112;
     }
   }
