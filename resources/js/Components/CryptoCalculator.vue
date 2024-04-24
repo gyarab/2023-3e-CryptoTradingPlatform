@@ -2,8 +2,8 @@
 <div class="max-w-lg mx-auto mt-6 pb-4 bg-secondarybg shadow-md rounded-lg border-secondarybg border-solid border-2">
   <!-- Buttons for Buy and Sell -->
   <div class="flex justify-between mb-4">
-    <button class="px-4 py-2 bg-bg text-white rounded-t-md hover:text-hovertext w-1/2 text-left transition-all" :class="{ 'bg-secondarybg': mode === 'buy' }" @click="setMode('buy')">Buy</button>
-    <button class="px-4 py-2 bg-bg text-white rounded-t-md hover:text-hovertext w-1/2 text-right transition" :class="{ 'bg-secondarybg': mode === 'sell' }" @click="setMode('sell')">Sell</button>
+    <button class="px-4 py-2 bg-bg text-primarytext rounded-t-md hover:text-hovertext w-1/2 text-left transition-all" :class="{ 'bg-secondarybg': mode === 'buy' }" @click="setMode('buy')">Buy</button>
+    <button class="px-4 py-2 bg-bg text-primarytext rounded-t-md hover:text-hovertext w-1/2 text-right transition" :class="{ 'bg-secondarybg': mode === 'sell' }" @click="setMode('sell')">Sell</button>
   </div>
   <div class="px-4">
   <!-- Label and input for USD amount -->
