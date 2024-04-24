@@ -11,6 +11,7 @@ import InputError from '@/Components/InputError.vue';
 import Checkbox from '@/Components/Checkbox.vue';
 import DangerButton from '@/Components/DangerButton.vue';
 import FAQ from '@/Components/FAQ.vue';
+import ApplicationName from '@/Components/ApplicationName.vue';
 
 defineProps({
     canLogin: {
@@ -39,17 +40,15 @@ defineProps({
         <Head title="Welcome" />
 
         <div
-            class="text-primarytext sticky flex  justify-between border-b border-border p-2 left-0 right-0 top-0 bg-bg">
+            class="text-primarytext sticky flex justify-between border-b border-border p-2 left-0 right-0 top-0 bg-bg items-center pr-4">
             <!--Header-->
-            <div>
+            <div class="inline-flex items-center">
                 <ApplicationLogo class="w-16 h-16" />
-            </div>
-            <div>
-                <span class="text-purple-400">Cryptonest</span>
+                <ApplicationName/>
             </div>
             <div v-if="canLogin" class="">
                 <Link v-if="$page.props.auth.user" :href="route('dashboard')"
-                    class="font-semibold text-secondarytext/80 hover:text-hovertext focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
+                    class="font-semibold text-secondarytext/80 hover:text-hovertext focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500 h-full">
                 Dashboard</Link>
 
                 <template v-else>
