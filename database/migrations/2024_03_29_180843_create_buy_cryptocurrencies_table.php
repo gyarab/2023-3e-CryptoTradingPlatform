@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('name', 50);
-            $table->float('amount');
+            $table->decimal('amount', 30,10);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

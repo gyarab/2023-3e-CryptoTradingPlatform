@@ -70,24 +70,6 @@ const createChart = () => {
     type: 'line',
     data: data,
     options: {
-      plugins: {
-        zoom: {
-          zoom: {
-            wheel: {
-              enabled: true,
-            },
-            pinch: {
-              enabled: true,
-            },
-            mode: 'xy',
-          },
-          limits: {
-            zoom: {
-              max: 2, // Set the maximum zoom level
-            },
-          },
-        },
-      },
       scales: {
         x: {
           grid: {

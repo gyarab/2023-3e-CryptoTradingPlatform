@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('user_balances', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->integer('balance');
+            $table->decimal('balance', 30,10);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

@@ -36,8 +36,8 @@ class CryptoDetailController extends Controller
             return $this->renderDashboard("The crypto currency you've searched for isn't in our database");
         }
 
-        $cryptoDataIn24 = $this->getHistoryData($cryptocurrency, 'h1', 25);
-        $cryptoDataIn12 = $this->getHistoryData($cryptocurrency, 'm30', 12.5);
+        $cryptoDataIn24 = $this->getHistoryData($cryptocurrency, 'd1', 20000); //4h 5-7 dni
+        $cryptoDataIn12 = $this->getHistoryData($cryptocurrency, 'm30', 12.5); //15min
         $cryptoDataIn1 = $this->getHistoryData($cryptocurrency, 'm1', 1);
 
         $favouriteCryptoCurrency = $this->isFavourite($cryptocurrency);
@@ -105,7 +105,7 @@ class CryptoDetailController extends Controller
         }
         return Inertia::render('Dashboard', [
             'cryptocurrency' => $cryptocurrency_values,
-            'url' => $cryptocurrency,
+            'url' => $cryptocurrency, 
             'cryptoDataIn24' => $cryptoDataIn24,
             'cryptoDataIn12' => $cryptoDataIn12,
             'cryptoDataIn1' => $cryptoDataIn1,

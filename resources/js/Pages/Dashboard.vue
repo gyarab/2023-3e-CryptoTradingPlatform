@@ -55,7 +55,7 @@ defineProps({
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-bg mb-4 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
+                <div v-if="url == 'dashboard'" class="bg-bg mb-4 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
                     <div class="p-6 text-primarytext bg-secondarybg">You're logged in!</div>
                 </div>
                 <span v-if="ListOfCurrencies">

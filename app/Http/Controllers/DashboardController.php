@@ -13,8 +13,6 @@ class DashboardController extends CryptoDetailController
 {
     protected function renderDashboard2()
     {
-        $cryptocurrency = 'bitcoin';
-
         $favouriteCryptoCurrencies = $this->getFavouriteCryptoCurrencies();
         
         $ListOfCurrencies = [];
@@ -27,6 +25,7 @@ class DashboardController extends CryptoDetailController
             'ListOfCurrencies' => $ListOfCurrencies,
             'error_message' => '',
             'favourite_cryptocurrency' => true,
+            'url' => 'dashboard',
         ]);
     }
 

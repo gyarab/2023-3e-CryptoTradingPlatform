@@ -17,7 +17,7 @@ class UserBalanceController extends Controller
     function displayBalance() {
         $userId = Auth::id();
 
-        $userBalance = $this->getData($userId, UserBalance::class);
+        $userBalance = $this->getData($userId, UserBalance::class, 'first');
         $favouriteCryptoCurrencies = $this->getData($userId, FavouriteCryptoCurrency::class);
         $userCryptoCurrencies = $this->getData($userId, BuyCryptocurrency::class);
         $userTrades = $this->getData($userId, Trade::class);
@@ -27,10 +27,14 @@ class UserBalanceController extends Controller
         $favouriteCryptoCurrencies = $this->addToArray($favouriteCryptoCurrencies, 'priceUsd');
         $favouriteCryptoCurrencies = $this->addToArray($favouriteCryptoCurrencies, 'changePercent24Hr');
         $userCryptoCurrencies = $this->addToArray($userCryptoCurrencies, 'symbol');
+        $userCryptoCurrencies = $this->addToArray($userCryptoCurrencies, 'priceUsd');
         $userTrades = $this->addToArray($userTrades, 'symbol');
+
+        $wealth = $this->calculateWealth($userCryptoCurrencies);
 
         return Inertia::render('Balance', [
             'balance' => $userBalance,
+            'wealth' => $wealth,
             'favouriteCryptoCurrencies' => $favouriteCryptoCurrencies,
             'userCryptoCurrencies' => $userCryptoCurrencies,
             'userTrades' => $userTrades,
@@ -38,8 +42,21 @@ class UserBalanceController extends Controller
         ]);
     }
 
-    function getData($userId, $model) {
-        return $model::where('user_id', $userId)->get();
+    function calculateWealth($currencies) {
+        $wealth = 0;
+
+        foreach($currencies as $currency) {
+            $x = (float) $currency['amount'];
+            $y = (float) $currency['priceUsd'];
+            $amountInUsd = $x * $y;
+            $wealth += $amountInUsd;
+        }
+
+        return $wealth;
+    }
+
+    function getData($userId, $model, $function = 'get') {
+        return $model::where('user_id', $userId)->$function();
     }
 
     function cryptoCurrencyInfo($cryptocurrency) {
