@@ -1,25 +1,29 @@
 <template>
-  <div class="max-w-lg mx-auto mt-6 p-4 bg-secondarybg shadow-md rounded-lg">
-    <!-- Buttons for Buy and Sell -->
-    <div class="flex justify-between mb-4">
-      <button class="px-4 py-2 bg-blue-500 text-white rounded-md" :class="{ 'bg-blue-600': mode === 'buy' }" @click="setMode('buy')">Buy</button>
-      <button class="px-4 py-2 bg-red-500 text-white rounded-md" :class="{ 'bg-red-600': mode === 'sell' }" @click="setMode('sell')">Sell</button>
-    </div>
-    
-    <!-- Label and input for USD amount -->
-    <label for="usdAmount" class="block text-sm font-medium text-secondarytext" :class="{ 'mt-2': mode === 'sell' }">Amount in USD:</label>
-    <input v-model.number="usdAmount" :readonly="mode === 'sell'" type="number" id="usdAmount" @input="updateCryptoAmount"
-           class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-border rounded-md bg-bg text-primarytext">
-    
-    <!-- Label and input for Cryptocurrency amount -->
-    <label for="cryptoAmount" class="block text-sm font-medium text-secondarytext" :class="{ 'mt-2': mode === 'buy' }">Equivalent Amount:</label>
-    <input v-model="cryptoAmount" :readonly="mode === 'buy'" type="text" id="cryptoAmount" @input="updateUsdAmount"
-           class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-border rounded-md bg-bg text-primarytext">
-    
-    <!-- Button to Buy/Sell Crypto -->
-    <ToggleButton @click="buyCrypto" v-if="mode === 'buy'" :textBefore="'Buy Crypto'" :textAfter="'Bought Succesfully'"/>
-    <ToggleButton @click="sellCrypto" v-else :textBefore="'Sell Crypto'" :textAfter="'Sold Succesfully'"/>
+<div class="max-w-lg mx-auto mt-6 pb-4 bg-secondarybg shadow-md rounded-lg border-secondarybg border-solid border-2">
+  <!-- Buttons for Buy and Sell -->
+  <div class="flex justify-between mb-4">
+    <button class="px-4 py-2 bg-bg text-white rounded-t-md hover:text-hovertext w-1/2 text-left transition-all" :class="{ 'bg-secondarybg': mode === 'buy' }" @click="setMode('buy')">Buy</button>
+    <button class="px-4 py-2 bg-bg text-white rounded-t-md hover:text-hovertext w-1/2 text-right transition" :class="{ 'bg-secondarybg': mode === 'sell' }" @click="setMode('sell')">Sell</button>
   </div>
+  <div class="px-4">
+  <!-- Label and input for USD amount -->
+<label for="usdAmount" class="block text-sm font-medium text-primarytext">Amount in USD:</label>
+<input v-model.number="usdAmount" :readonly="mode === 'sell'" type="number" id="usdAmount" @input="updateCryptoAmount"
+        :placeholder="mode !== 'sell' ? 'Enter amount in USD' : ''"
+        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-border rounded-md bg-bg text-primarytext placeholder:text-secondarytext">
+
+<!-- Label and input for Cryptocurrency amount -->
+<label for="cryptoAmount" class="block text-sm font-medium text-primarytext mt-2">Equivalent Amount:</label>
+<input v-model="cryptoAmount" :readonly="mode === 'buy'" type="text" id="cryptoAmount" @input="updateUsdAmount"
+        :placeholder="mode !== 'buy' ? 'Enter equivalent amount' : ''"
+        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-border rounded-md bg-bg text-primarytext placeholder:text-secondarytext">
+
+  
+    <!-- Button to Buy/Sell Crypto -->
+    <ToggleButton @click="buyCrypto" v-if="mode === 'buy'" :textBefore="'Buy Crypto'" :textAfter="'Bought Successfully'"/>
+    <ToggleButton @click="sellCrypto" v-else :textBefore="'Sell Crypto'" :textAfter="'Sold Successfully'"/>
+  </div>
+</div>
 </template>
 
 <script>

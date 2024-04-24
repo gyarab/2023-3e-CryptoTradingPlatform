@@ -1,6 +1,6 @@
 <template>
     <transition name="slide-fade">
-      <button @click="toggle()" class="bg-green-500 text-white px-4 py-2 rounded-md mt-5 mr-6 transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none">
+      <button @click="toggle()" class="bg-buttonbg text-white px-4 py-2 rounded-md mt-5 mr-6 transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none">
         <span v-if="!showDone" class="animate-pulse">{{textBefore}}</span>
         <span v-else>{{textAfter}}✓</span>
       </button>
