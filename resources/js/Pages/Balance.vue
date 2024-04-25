@@ -138,7 +138,7 @@ export default {
               {{ isVisible ? 'HIDE' : 'SHOW' }}
             </PrimaryButton>
             <br>
-            <p class="mt-5 text-red-500" v-if="userTrades == '' & isVisible">You have not made any Trades
+            <p class="mt-5 text-red-500" v-if="userTrades == '' & isVisible">You have not made any trades
               yet</p>
             <div v-if="isVisible & userTrades != ''">
               <table class="border-none min-w-full text-left text-sm font-light rounded-lg bg-bg text-primarytext">
