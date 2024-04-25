@@ -4,7 +4,6 @@ import { Head } from '@inertiajs/vue3';
 import SearchBar from '@/Components/SearchBar.vue';
 import { ref } from 'vue';
 import CryptoCalculator from '@/Components/CryptoCalculator.vue';
-import ToggleButton from '@/Components/ToggleButton.vue';
 import LinkCrypto from '@/Components/LinkCrypto.vue'
 
 

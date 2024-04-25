@@ -5,9 +5,6 @@ import CryptoCurrency from '@/Components/CryptoCurrency.vue';
 import SearchBar from '@/Components/SearchBar.vue';
 import CryptoChart from '@/Components/CryptoChart.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue'
-import DropdownIntervals from '@/Components/DropdownIntervals.vue';
-import { ref } from 'vue';
-import { data } from 'autoprefixer';
 
 defineProps({
     cryptocurrency: {

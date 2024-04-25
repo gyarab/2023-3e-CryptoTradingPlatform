@@ -1,15 +1,6 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { VueElement } from 'vue';
-import DarkModeRoot from '@/Components/DarkModeRoot.vue';
-import TextInput from '@/Components/TextInput.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import InputError from '@/Components/InputError.vue';
-import Checkbox from '@/Components/Checkbox.vue';
-import DangerButton from '@/Components/DangerButton.vue';
 import FAQ from '@/Components/FAQ.vue';
 import ApplicationName from '@/Components/ApplicationName.vue';
 
