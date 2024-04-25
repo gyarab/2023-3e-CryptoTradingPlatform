@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddMoneyController;
 use App\Http\Controllers\AddToMyListController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -43,5 +44,7 @@ Route::post('/add-to-my-list', [AddToMyListController::class, 'addToMyList']);
 Route::post('/remove-from-my-list', [AddToMyListController::class, 'removeFromMyList']);
 
 Route::get('/balance', [UserBalanceController::class, 'displayBalance'])->middleware(['auth', 'verified'])->name('balance');
+
+Route::post('/add-money', [AddMoneyController::class, 'addMoney'])->name('addMoney');
 
 require __DIR__.'/auth.php';

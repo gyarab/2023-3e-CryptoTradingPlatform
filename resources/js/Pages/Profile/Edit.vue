@@ -5,6 +5,7 @@ import UpdatePasswordForm from './Partials/UpdatePasswordForm.vue';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue';
 import { Head } from '@inertiajs/vue3';
 import DarkModeRoot from '@/Components/DarkModeRoot.vue';
+import ModifyBalance from './Partials/ModifyBalance.vue';
 
 defineProps({
     mustVerifyEmail: {
@@ -39,6 +40,10 @@ defineProps({
 
                 <div class="bg-bg p-4 sm:p-8 shadow shadow-primarytext/20 hover:shadow-primarytext/30 sm:rounded-lg">
                     <UpdatePasswordForm class="max-w-xl" />
+                </div>
+
+                <div class="bg-bg p-4 sm:p-8 shadow shadow-primarytext/20 hover:shadow-primarytext/30 sm:rounded-lg">
+                    <ModifyBalance class="max-w-xl" />
                 </div>
 
                 <div class="bg-bg p-4 sm:p-8 shadow shadow-primarytext/20 hover:shadow-primarytext/30 sm:rounded-lg">

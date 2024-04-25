@@ -38,8 +38,8 @@ class CryptoDetailController extends Controller
 
         $cryptoDataIn1M = $this->getHistoryData($cryptocurrency, 'd1', 720);
         $cryptoDataIn1W = $this->getHistoryData($cryptocurrency, 'h2', 168);
-        $cryptoDataIn24 = $this->getHistoryData($cryptocurrency, 'h1', 25); //4h 5-7 dni
-        $cryptoDataIn12 = $this->getHistoryData($cryptocurrency, 'm30', 12.5); //15min
+        $cryptoDataIn24 = $this->getHistoryData($cryptocurrency, 'h1', 25); 
+        $cryptoDataIn12 = $this->getHistoryData($cryptocurrency, 'm30', 12.5); 
         $cryptoDataIn6 = $this->getHistoryData($cryptocurrency, 'm15', 6);
         $cryptoDataIn1 = $this->getHistoryData($cryptocurrency, 'm1', 1);
 
