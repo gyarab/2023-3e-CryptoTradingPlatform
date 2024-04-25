@@ -48,6 +48,7 @@ const removeFromMyList = async (cryptocurrencyName) => {
 </script>
 
 <style>
+/* ChatGPT(generate a simple pulse button animation) */
 .button-add-remove {
   position: relative;
 }

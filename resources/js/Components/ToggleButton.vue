@@ -20,7 +20,7 @@ const showDone = ref(false);
 
 const toggle = async () => {
   showDone.value = true;
-  // After 2 seconds, reset showDone to false
+  // ChatGPT(After 2 seconds, reset showDone to false)
   setTimeout(() => {
     showDone.value = false;
   }, 2000);
@@ -28,6 +28,7 @@ const toggle = async () => {
 </script>
 
 <style>
+/* ChatGPT(create simple pulse button animation) */
 .button-add-remove {
   position: relative;
 }

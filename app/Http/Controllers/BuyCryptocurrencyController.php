@@ -12,7 +12,7 @@ use App\Http\Controllers\CryptoDetailController;
 
 
 class BuyCryptocurrencyController extends CryptoDetailController
-{    //delete white spaces in cryptocalculator
+{    
     function displayPurchase($cryptocurrency) {
         $cryptocurrency_values = $this->getCryptoCurrencyValues($cryptocurrency)->data;
 
@@ -58,8 +58,6 @@ class BuyCryptocurrencyController extends CryptoDetailController
                 'amount' => $cryptoAmount,
             ]);
         }
-
-        //Double check  if everything went okay
 
         $this->saveTrade($userId, $cryptocurrency, $cryptoAmount, $usdAmount, true);
 
@@ -111,10 +109,11 @@ class BuyCryptocurrencyController extends CryptoDetailController
     }
 
     function validateData(Request $request) {
+        // ChatGPT(validate: Amount must be greater than zero and numeric and cryptocurrency string)
         $request->validate([
             'cryptocurrency' => 'required|string|max:50',
-            'cryptoAmount' => ['required', 'numeric', 'gt:0'], // Amount must be greater than zero
-            'usdAmount' => ['required', 'numeric', 'gt:0'], // Amount must be greater than zero
+            'cryptoAmount' => ['required', 'numeric', 'gt:0'], 
+            'usdAmount' => ['required', 'numeric', 'gt:0'], 
         ]);
     }
 

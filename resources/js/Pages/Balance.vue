@@ -36,15 +36,14 @@ const formatTimestamp = (timestamp) => {
 export default {
   data() {
     return {
-      isVisible: false // Initially, the div is hidden
+      isVisible: false
     };
   },
   methods: {
     toggleVisibility() {
-      // Toggle the visibility state of the div
       this.isVisible = !this.isVisible;
     },
-    // THIS METHOD WAS CREATED BY CHATGPT
+    // ChatGPT() stejná metoda již ocitována
     formatNumber(number) {
       // Convert number to string
       let numberString = number.toString();

@@ -10,7 +10,7 @@ class UserBalance extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', // Add user_id to the fillable array
+        'user_id', 
         'balance',
     ];
 }

@@ -11,14 +11,6 @@ defineProps({
   canRegister: {
     type: Boolean,
   },
-  laravelVersion: {
-    type: String,
-    required: true,
-  },
-  phpVersion: {
-    type: String,
-    required: true,
-  },
   cryptocurrencies: {
     type: Array
   }
@@ -53,8 +45,8 @@ defineProps({
         </template>
       </div>
     </div>
-    <div class="pt-12 pr-12 pl-12 s:h-dvh min-h-screen h-full text-primarytext bg-bg pb-10"> <!--wrapper-->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4"><!--Content-->
+    <div class="pt-12 pr-12 pl-12 s:h-dvh min-h-screen h-full text-primarytext bg-bg pb-10"> 
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 
         <div>
           <h1 class="text-2xl sm:text-4xl mb-2">Welcome to Cryptonest</h1>

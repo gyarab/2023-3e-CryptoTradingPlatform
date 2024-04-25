@@ -123,14 +123,13 @@ class CryptoDetailController extends Controller
 
     protected function filterDataForTimeInterval($data, $intervalInHours) 
     {
-        // Convert interval to milliseconds
         $intervalInMilliseconds = $intervalInHours * 60 * 60 * 1000;
     
         $currentTimestampMs = round(microtime(true) * 1000);
         $startTimeMs = $currentTimestampMs - $intervalInMilliseconds;
     
+        // Řádky 13-13 - ChatGPT(Filter the array so that the items are between startTimeMs and currentTimestampsMS)
         $filteredData = array_filter($data['data'], function ($item) use ($startTimeMs, $currentTimestampMs) {
-            // Assuming the timestamp key in the data is 'time' (in milliseconds)
             return isset($item['time']) && $item['time'] >= $startTimeMs && $item['time'] <= $currentTimestampMs;
         });
 
