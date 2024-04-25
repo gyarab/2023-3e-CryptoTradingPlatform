@@ -30,6 +30,9 @@ const { cryptocurrency, message, error_message, url, cryptoDataIn24, cryptoDataI
     cryptoDataIn1: {
         type: Object
     },
+    balance: {
+        type: Array
+    },
 });
 
 const cryptoAmount = ref(0);
@@ -56,7 +59,7 @@ const updateUsdAmount = (amount) => {
             <div class="md:flex md:items-center md:justify-between">
                 <!-- Header for medium and larger screens -->
                 <h2 class="font-semibold text-xl text-primarytext leading-tight md:mr-4">
-                Crypto Trading Platform
+                Cryptonest
                 </h2>
                 <!-- Search bar section -->
                 <SearchBar />
@@ -66,6 +69,9 @@ const updateUsdAmount = (amount) => {
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-secondarybg overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg p-2 mb-5">
+                    <p class="text-primarytext"><span class="font-semibold">Your Balance:</span> {{ parseFloat(balance['balance']).toFixed() }} <span class="text-green-500">&dollar;</span></p>
+                </div>
                 <div class="bg-secondarybg overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg p-2 mb-12">
                     <LinkCrypto :cryptocurrency="cryptocurrency"/>
                 </div>
