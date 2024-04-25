@@ -4,7 +4,6 @@ import { Head } from '@inertiajs/vue3';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import LinkCrypto from '@/Components/LinkCrypto.vue';
 import CryptoLogo from '@/Components/CryptoLogo.vue'
-import { parse } from 'vue/compiler-sfc';
 
 defineProps({
     balance: {
@@ -37,15 +36,14 @@ const formatTimestamp = (timestamp) => {
 export default {
   data() {
     return {
-      isVisible: false // Initially, the div is hidden
+      isVisible: false
     };
   },
   methods: {
     toggleVisibility() {
-      // Toggle the visibility state of the div
       this.isVisible = !this.isVisible;
     },
-
+    // THIS METHOD WAS CREATED BY CHATGPT
     formatNumber(number) {
   // Convert number to string
   let numberString = number.toString();
@@ -85,12 +83,12 @@ export default {
                             Your Wallet: {{ formatNumber(parseFloat((balance['balance'])).toFixed(3)) }} 
                             <span class="text-green-500">&dollar;</span></p>
                         <p class="mt-2">
-                            Your money in Crypto: {{ formatNumber(parseFloat((wealth)).toFixed(3)) }} 
+                            Value of Crypto: {{ formatNumber(parseFloat((wealth)).toFixed(3)) }} 
                             <span class="text-green-500">&dollar;</span>
                         </p>
                         <p class="mt-2">
-                            Your total wealth:
-                            {{ (parseFloat(parseFloat(wealth).toFixed(3)) + parseFloat(parseFloat(balance['balance']).toFixed(3))).toFixed(3) }}
+                            Net Worth:
+                            {{ formatNumber((parseFloat(parseFloat(wealth).toFixed(3)) + parseFloat(parseFloat(balance['balance']).toFixed(3))).toFixed(3)) }}
                             <span class="text-green-500">&dollar;</span>
                         </p>
                     </div>
@@ -104,7 +102,7 @@ export default {
                             {{ formatNumber(cryptoOwned['amount']) }}
                             <span class="text-secondarytext">{{ cryptoOwned['symbol'] }}</span>
                             <span class="ml-3 mr-1">=</span>
-                            {{ formatNumber(cryptoOwned['amount'] * cryptoOwned['priceUsd']) }}
+                            {{ parseFloat(formatNumber(cryptoOwned['amount'] * cryptoOwned['priceUsd'])).toFixed(3) }}
                             <span class="text-green-500" >&dollar;</span>
                         </div>
                         <p v-else>

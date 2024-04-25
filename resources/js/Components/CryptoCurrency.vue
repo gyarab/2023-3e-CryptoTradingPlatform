@@ -11,9 +11,9 @@
         </div>
       </div>
       <div class="text-left">
-        <p class="text-primarytext">Supply: <span class="font-bold text-lg">{{ parseFloat(supply).toFixed(3) }}  <span class="text-gray-400">{{ shortcut }}</span></span></p>
+        <p class="text-primarytext">Supply: <span class="font-bold text-lg">{{ formatNumber(parseFloat(supply).toFixed(3)) }}  <span class="text-gray-400">{{ shortcut }}</span></span></p>
         <p v-if="maxSupply" class="text-primarytext">Max Supply: <span class="font-bold text-lg">{{ parseFloat(maxSupply) }} <span class="text-gray-400">{{ shortcut }}</span></span></p>
-        <p class="text-primarytext">Volume (24Hr): <span class="font-bold text-lg">{{ parseFloat(volumeUsd24Hr).toFixed(3) }} <span class="text-green-500"> $</span></span></p>
+        <p class="text-primarytext">Volume (24Hr): <span class="font-bold text-lg">{{ formatNumber(parseFloat(volumeUsd24Hr).toFixed(3)) }} <span class="text-green-500"> $</span></span></p>
         <p class="text-primarytext">Change (24Hr): <span v-if="changePercent24Hr>0" class="font-bold text-lg text-green-500">{{ parseFloat(changePercent24Hr).toFixed(3) }} %</span> <span v-else class="font-bold text-lg text-red-500">{{ parseFloat(changePercent24Hr).toFixed(3) }} %</span></p>
         <p class="text-primarytext">VWAP (24Hr): <span class="font-bold text-lg">{{ parseFloat(vwap24Hr).toFixed(3) }}<span class="text-green-500"> $</span></span></p>
         <p class="text-primarytext">Value in USD: <span class="font-bold text-lg">{{ parseFloat(priceUsd).toFixed(3) }} <span class="text-green-500"> $</span></span></p>
@@ -49,4 +49,22 @@ defineProps({
   currencyImg: String,
   addedToList: Boolean,
 });
+</script>
+<script>
+export default {
+  data() {
+    return {};
+  },
+  methods: {
+    formatNumber(number) {
+      // Convert number to string
+      let numberString = number.toString();
+      // Remove trailing zeros and decimal point if all decimal places are zeros
+      let formattedString = numberString.replace(/(\.[0-9]*[1-9])0+$|\.0*$/, '$1');
+      // Insert a space after every three numeric characters from the end
+      formattedString = formattedString.replace(/\d{1,3}(?=(\d{3})+(?!\d))/g, '$& ');
+      return formattedString;
+    }
+  },
+};
 </script>
