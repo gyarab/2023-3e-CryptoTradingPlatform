@@ -24,11 +24,11 @@
 
     <div class="text-primarytext md:w-1/2 lg:w-1/3 xl:w-1/4">
         <div class="mb-4 text-center md:text-left">
-          <p class="text-gray-600 text-sm md:text-base">Buy 1 {{ cryptocurrencyName }}</p>
+          <p class="text-secondarytext text-sm md:text-base">Buy 1 {{ cryptocurrencyName }}</p>
           <p class="text-2xl md:text-3xl font-bold"><span class="text-green-500">$</span>{{ parseFloat(priceUsd).toFixed(3) }}</p>
         </div>
 
-        <a :href="'/dashboard/' + cryptocurrencyName.toLowerCase() + '/buy'" class="bg-buttonbg text-white px-4 py-2 rounded-md block text-center transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none">Buy Now</a>
+        <a :href="'/dashboard/' + cryptocurrencyName.toLowerCase() + '/buy'" class="bg-buttonbg text-white px-4 py-2 rounded-md block text-center transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none">BUY/SELL</a>
     </div>
   </div>
 </template>
