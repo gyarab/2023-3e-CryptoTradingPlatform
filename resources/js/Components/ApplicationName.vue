@@ -5,6 +5,7 @@
 </template>
 
 <style>
+/* https://www.youtube.com/watch?v=yefgBA1CecI */
 .container {
   display: inline-block;
 }

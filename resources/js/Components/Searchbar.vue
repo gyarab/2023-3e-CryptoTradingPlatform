@@ -18,11 +18,11 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 
 const searchValue = ref('');
 
+// ChatGPT(redirect user to url that i created) 
 const redirectToUserInput = () => {
   const isString = /^[A-Za-z]+$/.test(searchValue.value);
 
   if (!isString) {
-    // If it's not a string, redirect to the dashboard
     window.location.href = '/dashboard';
     return;
   }

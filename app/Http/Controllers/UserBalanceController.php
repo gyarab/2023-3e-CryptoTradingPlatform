@@ -64,12 +64,11 @@ class UserBalanceController extends Controller
     }
 
     function addToArray($array, $param) {
-
+    // ChatGPT(add the param to the array)
         foreach ($array as $key => $currency) {
             $info = $this->cryptoCurrencyInfo($currency->name)->data;
     
             $array[$key]->$param = $info->$param;
-            //$array[$key]->$param2 = $info->$param2;
         }
 
         return $array;

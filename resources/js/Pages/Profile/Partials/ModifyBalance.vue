@@ -2,23 +2,20 @@
 import TextInput from '@/Components/TextInput.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import ToggleButton from '@/Components/ToggleButton.vue';
-import { ref } from 'vue'; // Import the ref function to define reactive data
-import axios from 'axios'; // Import axios for HTTP requests
+import { ref } from 'vue'; 
+import axios from 'axios'; 
 
-const moneyToAdd = ref(''); // Define a reactive reference for the amount of money to add
+const moneyToAdd = ref(''); 
 
 const addMoney = async () => {
   try {
     const response = await axios.post('/add-money', {
-      amount: parseFloat(moneyToAdd.value) // Pass the value of moneyToAdd to the API
+      amount: parseFloat(moneyToAdd.value) 
     });
     console.log("Money added:", moneyToAdd.value);
-    // Reset the text field after successful addition
     moneyToAdd.value = '';
-    // Handle success response
   } catch (error) {
     console.error('Error while adding money:', error);
-    // Handle error
   }
 };
 </script>
@@ -33,7 +30,7 @@ const addMoney = async () => {
   
     <div class="mt-6 space-y-6">
       <InputLabel for="add_money" value="Add to your balance"/>
-      <div class="mt-1 block w-full md:w-1/2"> <!-- Apply class directly to the div element -->
+      <div class="mt-1 block w-full md:w-1/2">
         <TextInput
           id="add_money"
           v-model="moneyToAdd" 

@@ -26,9 +26,9 @@ const props = defineProps([
 ]);
 const cryptoChart = ref(null);
 let myChart = null;
-const selectedInterval = ref('24'); // Default interval
-const scrollPosition = ref(0); // Store scroll position
-let initialChartConfig = null; // Store initial chart configuration
+const selectedInterval = ref('24'); 
+const scrollPosition = ref(0); // ChatGPT(how to set fixed scroll position)
+let initialChartConfig = null; 
 
 const getPrimaryTextColor = () => {
   const root = document.documentElement;
@@ -37,6 +37,7 @@ const getPrimaryTextColor = () => {
   return `rgba(${rgbaColor}, 0.2)`;
 };
 
+// ChatGPT(Create different highlight color for each data se)
 const getChartData = () => {
   let selectedData = props.dataIn24;
   let backgroundColor = 'rgba(128, 0, 128, 0.2)'; // Purple
@@ -64,6 +65,7 @@ const getChartData = () => {
     borderColor = 'rgb(0, 255, 0)'; // Lime green
   }
 
+  // ChatGPT(create labels using the dataset)
   const labels = selectedData.data.map((entry) => {
     const date = new Date(entry.time);
     return date.getHours() + ':' + (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();

@@ -3,7 +3,7 @@
     <div class="mb-4 md:mb-0 md:mr-4 text-primarytext md:w-1/2 lg:w-2/3 xl:w-3/4">
       <div class="flex items-center justify-between mb-2">
         <div class="flex items-center">
-          <img class="w-12 mr-2 mt-2 sm:w-24" :src="currencyImg" :alt="`${cryptocurrencyName} logo`"> <!-- Adjusted margin-top for the logo -->
+          <img class="w-12 mr-2 mt-2 sm:w-24" :src="currencyImg" :alt="`${cryptocurrencyName} logo`"> 
           <div>
             <p class="text-xl md:text-2xl lg:text-3xl font-bold text-center md:text-left text-primarytext">{{ cryptocurrencyName }}</p>
             <p class="text-gray-500 text-sm md:text-base text-center md:text-left">({{ shortcut }})</p>
@@ -56,7 +56,7 @@ export default {
     return {};
   },
   methods: {
-    //THIS METHOD WAS CREATED BY CHATGPT
+    // ChatGPT(write a method to formate a number)
     formatNumber(number) {
       // Convert number to string
       let numberString = number.toString();

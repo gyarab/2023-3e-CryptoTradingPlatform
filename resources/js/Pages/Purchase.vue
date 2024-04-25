@@ -38,7 +38,7 @@ const cryptoAmount = ref(0);
 
 const usdAmount = ref(0);
 
-// Define a function to update cryptoAmount when cryptoAmountCalculated event is emitted
+// ChatGPT(define a function to update cryptoAmount when cryptoAmountCalculated event is emitted)
 const updateCryptoAmount = (amount) => {
   cryptoAmount.value = amount;
   console.log(amount);
@@ -89,7 +89,7 @@ export default {
     return {};
   },
   methods: {
-    //THIS METHOD WAS CREATED BY CHATGPT
+    // ChatGPT() setjná metoda je již ocitována
     formatNumber(number) {
       // Convert number to string
       let numberString = number.toString();
