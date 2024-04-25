@@ -66,15 +66,9 @@ defineProps({
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4"><!--Content-->
 
                 <div>
-                    <h1 class="text-primary text-4xl">Welcome to Cryptonest</h1>
-                    <p class="text-3xl">Learn how to trade!!!</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam fuga quod rerum illo alias
-                        voluptates,
-                        reiciendis ab earum illum incidunt, repellendus, dignissimos esse tenetur rem distinctio dolore
-                        quisquam
-                        sapiente vitae quae? Molestias sit quos, unde nulla quo nemo quam odit earum eaque odio fuga
-                        explicabo,
-                        ducimus officiis rem, reprehenderit reiciendis!</p>
+                    <h1 class="text-2xl sm:text-4xl mb-2">Welcome to Cryptonest</h1>
+                    <p class="text-xl sm:text-3xl mb-4">Learn how to trade!!!</p>
+                    <p class="sm:text-lg text-secondarytext">Cryptonest is a user-friendly web application designed for individuals who want to gain practical experience in trading cryptocurrencies without the risk of real financial loss. <br> With Cryptonest, users can create an account and access a simulated trading environment where they can buy and sell various cryptocurrencies using virtual funds.</p>
                 </div>
 
                 <div class="justify-center overflow-x-auto shadow-md rounded-lg">
@@ -113,7 +107,11 @@ defineProps({
                 <h2 class="text-3xl ml-4">
                     Freqently Asked Questions
                 </h2>
-                <FAQ class="w-full" question="Question?" answer="answer"></FAQ><!--fill questions and answers-->
+                <FAQ question="How does Cryptonest work?" answer="After registration you are given some amount of unreal dollars which can then be invested into crypto. However, the values of the cryptocurrencies are real."/>
+                <FAQ question="Why choose Cryptonest?" answer="Cryptonest offers a risk-free enviroment, which is suitable even for complete beginners."/>
+                <FAQ question="Is Cryptonest free to use?" answer="Yes, Cryptonest is completely free to use." />
+                <FAQ question="What if I run out of virtual funds?" answer="You can add funds to your account within the profile tab. We advise our users to use this function as scarcely as possible to ensure an authentic learning experience" />
+                <FAQ question="Can I customize my trading dashboard on Cryptonest" answer="You can customize your dashboard by adding Cryptocurrencies to your list allowing for easy access to buying and selling crypto"/>
             </div>
         </div>
     </div>

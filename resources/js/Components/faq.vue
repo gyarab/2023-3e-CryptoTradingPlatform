@@ -29,7 +29,7 @@ export default {
         <p class="text-xl font-bold inline-block mr-2">
           {{ question }}
         </p>
-        <button @click="toggleVisibility" class="bg-inherit rounded-full p-2 inline-flex items-center justify-center focus:bg-buttonbg font-bold text-xl ml-auto" style="width: 2.5rem; height: 2.5rem;">
+        <button @click="toggleVisibility" class="bg-inherit rounded-full p-2 inline-flex items-center justify-center focus:bg-buttonbg font-bold text-xl ml-auto transition-all" style="width: 2.5rem; height: 2.5rem;">
           {{ isVisible ? '-' : '+' }}
         </button>
       </div>
