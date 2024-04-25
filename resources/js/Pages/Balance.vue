@@ -79,7 +79,7 @@ export default {
     <div class="py-12 text-primarytext">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
-          <div class="p-6">
+          <div class="p-6" v-if="balance">
             <span class="text-xl font-semibold">Balance:</span>
             <!--font-semibold text-xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-pink-500-->
             <p class="mt-2">
@@ -96,6 +96,11 @@ export default {
                 parseFloat(parseFloat(balance['balance']).toFixed(3))).toFixed(3)) }}
               <span class="text-green-500">&dollar;</span>
             </p>
+          </div>
+          <div class="p-6" v-else>
+            <span class="text-xl font-semibold">Balance: </span>
+            <p>0</p>
+            <p class="text-red-500">Add money to your account in the profile section</p>
           </div>
         </div>
         <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
