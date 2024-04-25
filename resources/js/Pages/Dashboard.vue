@@ -19,6 +19,15 @@ defineProps({
     url: {
         type: String
     },
+    cryptoDataIn1M:  {
+        type: Object
+    },
+    cryptoDataIn1W: {
+        type: Object
+    },
+    cryptoDataIn6: {
+        type: Object
+    },
     cryptoDataIn24: {
         type: Object
     },
@@ -79,10 +88,13 @@ defineProps({
                             </PrimaryButton>
 
                             <CryptoChart v-if="currency.showChart"
+                            :dataM="currency['dataM']"
+                            :dataW="currency['dataW']"
                             :dataIn24="currency['data24']"
                             :dataIn12="currency['data12']"
+                            :dataIn6="currency['data6']"
                             :dataIn1="currency['data1']"
-                            :name="currency['name']"
+                            :name="currency['values']['data']['name']"
                         />
                         </div>
                     </div>
@@ -103,8 +115,11 @@ defineProps({
                             :addedToList=favourite_cryptocurrency
                             />
                         <CryptoChart 
+                            :dataM="cryptoDataIn1M"
+                            :dataW="cryptoDataIn1W"
                             :dataIn24="cryptoDataIn24"
                             :dataIn12="cryptoDataIn12"
+                            :dataIn6="cryptoDataIn6"
                             :dataIn1="cryptoDataIn1"
                             :name="cryptocurrency['name']"
                         />

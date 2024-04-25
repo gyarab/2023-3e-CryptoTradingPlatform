@@ -36,13 +36,16 @@ class CryptoDetailController extends Controller
             return $this->renderDashboard("The crypto currency you've searched for isn't in our database");
         }
 
-        $cryptoDataIn24 = $this->getHistoryData($cryptocurrency, 'd1', 20000); //4h 5-7 dni
+        $cryptoDataIn1M = $this->getHistoryData($cryptocurrency, 'd1', 720);
+        $cryptoDataIn1W = $this->getHistoryData($cryptocurrency, 'h2', 168);
+        $cryptoDataIn24 = $this->getHistoryData($cryptocurrency, 'h1', 25); //4h 5-7 dni
         $cryptoDataIn12 = $this->getHistoryData($cryptocurrency, 'm30', 12.5); //15min
+        $cryptoDataIn6 = $this->getHistoryData($cryptocurrency, 'm15', 6);
         $cryptoDataIn1 = $this->getHistoryData($cryptocurrency, 'm1', 1);
 
         $favouriteCryptoCurrency = $this->isFavourite($cryptocurrency);
 
-        return $this->renderDashboard(null, $cryptocurrency_values, $cryptocurrency, $cryptoDataIn24, $cryptoDataIn12, $cryptoDataIn1, $favouriteCryptoCurrency);
+        return $this->renderDashboard(null, $cryptocurrency_values, $cryptocurrency, $cryptoDataIn1M, $cryptoDataIn1W, $cryptoDataIn24, $cryptoDataIn12, $cryptoDataIn6, $cryptoDataIn1, $favouriteCryptoCurrency);
     }
 
     protected function getHistoryData($cryptocurrency, $interval, $time_period)
@@ -97,7 +100,7 @@ class CryptoDetailController extends Controller
        }
     }
 
-    protected function renderDashboard($error_message = null, $cryptocurrency_values = null, $cryptocurrency = null, $cryptoDataIn24 = null, $cryptoDataIn12 = null, $cryptoDataIn1 = null, $favouriteCryptoCurrency = null)
+    protected function renderDashboard($error_message = null, $cryptocurrency_values = null, $cryptocurrency = null, $cryptoDataIn1M = null, $cryptoDataIn1W = null, $cryptoDataIn24 = null, $cryptoDataIn12 = null, $cryptoDataIn6 = null, $cryptoDataIn1 = null, $favouriteCryptoCurrency = null)
     {
         if($cryptocurrency_values != null)
         {
@@ -106,8 +109,11 @@ class CryptoDetailController extends Controller
         return Inertia::render('Dashboard', [
             'cryptocurrency' => $cryptocurrency_values,
             'url' => $cryptocurrency, 
+            'cryptoDataIn1M' => $cryptoDataIn1M,
+            'cryptoDataIn1W' => $cryptoDataIn1W,
             'cryptoDataIn24' => $cryptoDataIn24,
             'cryptoDataIn12' => $cryptoDataIn12,
+            'cryptoDataIn6' => $cryptoDataIn6,
             'cryptoDataIn1' => $cryptoDataIn1,
             'error_message' => $error_message,
             'favourite_cryptocurrency' => $favouriteCryptoCurrency,
