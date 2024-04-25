@@ -80,7 +80,6 @@ export default {
         <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
           <div class="p-6" v-if="balance">
             <span class="text-xl font-semibold">Balance:</span>
-            <!--font-semibold text-xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-pink-500-->
             <p class="mt-2">
               Your Wallet: {{ formatNumber(parseFloat((balance['balance'])).toFixed(3)) }}
               <span class="text-green-500">&dollar;</span>
