@@ -56,6 +56,7 @@ export default {
     return {};
   },
   methods: {
+    //THIS METHOD WAS CREATED BY CHATGPT
     formatNumber(number) {
       // Convert number to string
       let numberString = number.toString();

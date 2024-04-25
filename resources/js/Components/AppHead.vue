@@ -6,9 +6,10 @@ defineProps({ title: String })
 
 
 <template>
-    <div class="">
-        <Head :title="title ? `${title} - My App` : 'My App'">
-            
-        </Head>
-    </div>
+  <div class="">
+
+    <Head :title="title ? `${title} - My App` : 'My App'">
+
+    </Head>
+  </div>
 </template>

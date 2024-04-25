@@ -18,10 +18,10 @@ Chart.register(zoomPlugin);
 const props = defineProps([
   'dataM',
   'dataW',
-  'dataIn24', 
+  'dataIn24',
   'dataIn12',
-  'dataIn6', 
-  'dataIn1', 
+  'dataIn6',
+  'dataIn1',
   'name'
 ]);
 const cryptoChart = ref(null);

@@ -1,10 +1,12 @@
 <template>
   <transition name="slide-fade">
-    <button v-if="!addedToList" @click="addToMyList(cryptocurrencyName)" class="absolute top-0 right-0 bg-green-500 text-white px-4 py-2 rounded-md mt-5 mr-6 transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none">
+    <button v-if="!addedToList" @click="addToMyList(cryptocurrencyName)"
+      class="absolute top-0 right-0 bg-green-500 text-white px-4 py-2 rounded-md mt-5 mr-6 transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none">
       <span v-if="!showDone" class="animate-pulse">Add to My List</span>
       <span v-else>Added ✓</span>
     </button>
-    <button v-else @click="removeFromMyList(cryptocurrencyName)" class="absolute top-0 right-0 bg-gray-500 text-white px-4 py-2 rounded-md mt-5 mr-6 transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none">
+    <button v-else @click="removeFromMyList(cryptocurrencyName)"
+      class="absolute top-0 right-0 bg-gray-500 text-white px-4 py-2 rounded-md mt-5 mr-6 transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none">
       <span v-if="!showDone">Remove from My List</span>
       <span v-else>Removed ✕</span>
     </button>
@@ -58,13 +60,13 @@ const removeFromMyList = async (cryptocurrencyName) => {
   0% {
     opacity: 0.5;
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     opacity: 0.5;
   }
 }
 </style>
-
-  
