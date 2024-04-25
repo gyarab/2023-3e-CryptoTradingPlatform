@@ -80,25 +80,21 @@ export default {
         <div class="bg-bg mb-5 overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg">
           <div class="p-6" v-if="balance">
             <span class="text-xl font-semibold">Balance:</span>
-            <div v-if="balance != '' || wealth != ''">
-              <p class="mt-2">
-                Your Wallet: {{ formatNumber(parseFloat((balance['balance'])).toFixed(3)) }}
-                <span class="text-green-500">&dollar;</span>
-              </p>
-              <p class="mt-2">
-                Value of Crypto: {{ formatNumber(parseFloat((wealth)).toFixed(3)) }}
-                <span class="text-green-500">&dollar;</span>
-              </p>
-              <p class="mt-2">
-                Net Worth:
-                {{ formatNumber((parseFloat(parseFloat(wealth).toFixed(3)) +
-                  parseFloat(parseFloat(balance['balance']).toFixed(3))).toFixed(3)) }}
-                <span class="text-green-500">&dollar;</span>
-              </p>
-            </div>
-            <span v-else class="text-red-500 mt-5">
-              You do not have any money or money invested. Go to the profile tab and add more.
-            </span>
+            <!--font-semibold text-xl bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-pink-500-->
+            <p class="mt-2">
+              Your Wallet: {{ formatNumber(parseFloat((balance['balance'])).toFixed(3)) }}
+              <span class="text-green-500">&dollar;</span>
+            </p>
+            <p class="mt-2">
+              Value of Crypto: {{ formatNumber(parseFloat((wealth)).toFixed(3)) }}
+              <span class="text-green-500">&dollar;</span>
+            </p>
+            <p class="mt-2">
+              Net Worth:
+              {{ formatNumber((parseFloat(parseFloat(wealth).toFixed(3)) +
+                parseFloat(parseFloat(balance['balance']).toFixed(3))).toFixed(3)) }}
+              <span class="text-green-500">&dollar;</span>
+            </p>
           </div>
           <div class="p-6" v-else>
             <span class="text-xl font-semibold">Balance: </span>
@@ -115,7 +111,7 @@ export default {
               {{ formatNumber(cryptoOwned['amount']) }}
               <span class="text-secondarytext">{{ cryptoOwned['symbol'] }}</span>
               <span class="ml-3 mr-1">=</span>
-              {{ formatNumber(parseFloat(cryptoOwned['amount'] * cryptoOwned['priceUsd']).toFixed(3)) }}
+              {{ parseFloat(formatNumber(cryptoOwned['amount'] * cryptoOwned['priceUsd'])).toFixed(3) }}
               <span class="text-green-500">&dollar;</span>
             </div>
             <p v-else>
@@ -141,7 +137,7 @@ export default {
               {{ isVisible ? 'HIDE' : 'SHOW' }}
             </PrimaryButton>
             <br>
-            <p class="mt-5 text-red-500" v-if="userTrades == '' & isVisible">You have not made any Trades
+            <p class="mt-5 text-red-500" v-if="userTrades == '' & isVisible">You have not made any trades
               yet</p>
             <div v-if="isVisible & userTrades != ''">
               <table class="border-none min-w-full text-left text-sm font-light rounded-lg bg-bg text-primarytext">
