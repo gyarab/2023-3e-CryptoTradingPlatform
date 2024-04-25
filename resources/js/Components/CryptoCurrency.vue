@@ -12,11 +12,11 @@
       </div>
       <div class="text-left">
         <p class="text-primarytext">Supply: <span class="font-bold text-lg">{{ formatNumber(parseFloat(supply).toFixed(3)) }}  <span class="text-gray-400">{{ shortcut }}</span></span></p>
-        <p v-if="maxSupply" class="text-primarytext">Max Supply: <span class="font-bold text-lg">{{ parseFloat(maxSupply) }} <span class="text-gray-400">{{ shortcut }}</span></span></p>
+        <p v-if="maxSupply" class="text-primarytext">Max Supply: <span class="font-bold text-lg">{{ formatNumber(parseFloat(maxSupply)) }} <span class="text-gray-400">{{ shortcut }}</span></span></p>
         <p class="text-primarytext">Volume (24Hr): <span class="font-bold text-lg">{{ formatNumber(parseFloat(volumeUsd24Hr).toFixed(3)) }} <span class="text-green-500"> $</span></span></p>
-        <p class="text-primarytext">Change (24Hr): <span v-if="changePercent24Hr>0" class="font-bold text-lg text-green-500">{{ parseFloat(changePercent24Hr).toFixed(3) }} %</span> <span v-else class="font-bold text-lg text-red-500">{{ parseFloat(changePercent24Hr).toFixed(3) }} %</span></p>
-        <p class="text-primarytext">VWAP (24Hr): <span class="font-bold text-lg">{{ parseFloat(vwap24Hr).toFixed(3) }}<span class="text-green-500"> $</span></span></p>
-        <p class="text-primarytext">Value in USD: <span class="font-bold text-lg">{{ parseFloat(priceUsd).toFixed(3) }} <span class="text-green-500"> $</span></span></p>
+        <p class="text-primarytext">Change (24Hr): <span v-if="changePercent24Hr>0" class="font-bold text-lg text-green-500">{{ formatNumber(parseFloat(changePercent24Hr).toFixed(3)) }} %</span> <span v-else class="font-bold text-lg text-red-500">{{ parseFloat(changePercent24Hr).toFixed(3) }} %</span></p>
+        <p class="text-primarytext">VWAP (24Hr): <span class="font-bold text-lg">{{ formatNumber(parseFloat(vwap24Hr).toFixed(3)) }}<span class="text-green-500"> $</span></span></p>
+        <p class="text-primarytext">Value in USD: <span class="font-bold text-lg">{{ formatNumber(parseFloat(priceUsd).toFixed(3)) }} <span class="text-green-500"> $</span></span></p>
       </div>
     </div>
 
@@ -25,10 +25,10 @@
     <div class="text-primarytext md:w-1/2 lg:w-1/3 xl:w-1/4">
         <div class="mb-4 text-center md:text-left">
           <p class="text-secondarytext text-sm md:text-base">Buy 1 {{ cryptocurrencyName }}</p>
-          <p class="text-2xl md:text-3xl font-bold"><span class="text-green-500">$</span>{{ parseFloat(priceUsd).toFixed(3) }}</p>
+          <p class="text-2xl md:text-3xl font-bold"><span class="text-green-500">$</span>{{ formatNumber(parseFloat(priceUsd).toFixed(3)) }}</p>
         </div>
 
-        <a :href="'/dashboard/' + cryptocurrencyName.toLowerCase() + '/buy'" class="bg-buttonbg text-white px-4 py-2 rounded-md block text-center transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none">BUY/SELL</a>
+        <a :href="'/dashboard/' + cryptocurrencyName.toLowerCase() + '/buy'" class="bg-buttonbg text-white px-4 py-2 rounded-md block text-center transition duration-300 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none">Buy/Sell</a>
     </div>
   </div>
 </template>
