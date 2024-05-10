@@ -1,5 +1,5 @@
 <template>
-  <a :href="'http://localhost/dashboard/' + cryptocurrency['name'].toLowerCase()">
+  <Link :href="route('dashboard-search')">
     <CryptoLogo :cryptocurrency="cryptocurrency" />
     <div class="p-6 text-primarytext inline">{{ cryptocurrency['name'].charAt(0).toUpperCase() +
       cryptocurrency['name'].slice(1) }} <span class="text-gray-300">&#40;{{ cryptocurrency['symbol'] }}&#41;</span>
@@ -7,12 +7,14 @@
         class="text-green-500 md:ml-5"
         v-if="cryptocurrency['changePercent24Hr'] > 0">{{ parseFloat(cryptocurrency['changePercent24Hr']).toFixed(3)
         }}&#37;</span><span class="text-red-500 ml-5"
-        v-else>{{ parseFloat(cryptocurrency['changePercent24Hr']).toFixed(3) }}%</span></div>
-  </a>
+        v-else>{{ parseFloat(cryptocurrency['changePercent24Hr']).toFixed(3) }}%</span>
+    </div>
+  </Link>
 </template>
 
 <script setup>
-import CryptoLogo from '@/Components/CryptoLogo.vue'
+import CryptoLogo from '@/Components/CryptoLogo.vue';
+import { Link } from '@inertiajs/vue3';
 import { defineProps } from 'vue';
 
 defineProps({

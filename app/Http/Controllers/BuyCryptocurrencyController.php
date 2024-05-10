@@ -101,6 +101,10 @@ class BuyCryptocurrencyController extends CryptoDetailController
     function renderView($cryptocurrency = null, $message = null) {
         $balance = UserBalance::where('user_id', Auth::id())->first();
 
+        if(!$balance) {
+            $balance = array();
+        }
+
         return Inertia::render('Purchase', [
             'cryptocurrency' => $cryptocurrency,
             'message' => "$message",

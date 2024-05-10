@@ -70,8 +70,10 @@ const updateUsdAmount = (amount) => {
     <div class="py-12">
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-secondarybg overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg p-2 mb-5">
-          <p class="text-primarytext"><span class="font-semibold">Your Balance:</span> {{
-            formatNumber(parseFloat(balance['balance']).toFixed(3)) }} <span class="text-green-500">&dollar;</span></p>
+          <p class="text-primarytext"><span class="font-semibold">Your Balance:</span> <span v-if="balance['balance']">{{
+            formatNumber(parseFloat(balance['balance']).toFixed(3)) }}<span class="text-green-500">&dollar;</span></span> 
+            <span v-if="!balance['balance']">No money</span>
+          </p>
         </div>
         <div class="bg-secondarybg overflow-hidden shadow-sm shadow-primarytext/20 sm:rounded-lg p-2 mb-12">
           <LinkCrypto :cryptocurrency="cryptocurrency" />

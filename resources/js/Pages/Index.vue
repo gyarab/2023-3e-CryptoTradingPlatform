@@ -49,7 +49,7 @@ defineProps({
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
 
         <div>
-          <h1 class="text-2xl sm:text-4xl mb-2">Welcome to Cryptonest</h1>
+          <h1 class="text-3xl">Welcome to Cryptonest</h1>
           <p class="text-xl sm:text-3xl mb-4">Learn how to trade!!!</p>
           <p class="sm:text-lg text-secondarytext">Cryptonest is a user-friendly web application designed for
             individuals

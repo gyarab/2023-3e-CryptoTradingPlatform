@@ -15,12 +15,19 @@ class AddMoneyController extends Controller
     
         $usdAmount = $request->input('amount');
 
-        $userBalance = UserBalance::where('user_id', $userId)->first();
+        // Check if the user already has a record for the cryptocurrency
+        $existingRecord = UserBalance::where('user_id', $userId)->first();
 
-        $newUserBalance = $userBalance->balance + $usdAmount;
-        $userBalance->balance = $newUserBalance;
-        $userBalance->save();
-
+        if ($existingRecord) {
+            // Update the existing record with the new amount
+            $existingRecord->increment('balance', $usdAmount);
+        } else {
+            // Create a new record
+            UserBalance::create([
+                'user_id' => $userId,
+                'balance' => $usdAmount,
+            ]);
+        }
     }
 
     function validateData(Request $request) {

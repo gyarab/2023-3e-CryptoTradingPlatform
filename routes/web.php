@@ -33,7 +33,7 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/', [\App\Http\Controllers\IndexController::class, 'renderIndex'])->name('index');
 
-Route::get('dashboard/{cryptocurrency}/buy', [BuyCryptocurrencyController::class, 'displayPurchase'])->middleware(['auth', 'verified'])->name('buyCryptocurrency');
+Route::get('/dashboard/{cryptocurrency}/buy', [BuyCryptocurrencyController::class, 'displayPurchase'])->middleware(['auth', 'verified'])->name('buyCryptocurrency');
 
 Route::post('/buy-crypto', [BuyCryptocurrencyController::class, 'buyCrypto']);
 
