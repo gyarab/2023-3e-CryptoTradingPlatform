@@ -11,3 +11,19 @@
 - Jan Sváček
 - Nikola Jankovič
 - Josef Mitošinka
+
+## Instalation
+
+```git clone https://github.com/gyarab/2023-3e-CryptoTradingPlatform.git
+
+cd 2023-3e-CryptoTradingPlatform
+
+code .```
+
+přejmenovat `.env.exapmle` na `.env`
+
+```docker compose up
+
+php artisan migrate
+
+php artisan serve```
