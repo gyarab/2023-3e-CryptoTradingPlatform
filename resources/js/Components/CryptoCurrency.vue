@@ -1,7 +1,7 @@
 <template>
   <div class="p-6 bg-secondarybg flex flex-col md:flex-row items-center md:justify-between relative">
     <div class="mb-4 md:mb-0 md:mr-4 text-primarytext md:w-1/2 lg:w-2/3 xl:w-3/4">
-      <div class="flex items-center justify-between">
+      <div class="flex items-center justify-between mb-2">
         <div class="flex items-center">
           <img class="w-12 mr-2 mt-2 sm:w-24" :src="currencyImg" :alt="`${cryptocurrencyName} logo`"> 
           <div>

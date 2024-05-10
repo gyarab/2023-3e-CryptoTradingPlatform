@@ -97,7 +97,7 @@ defineProps({
           Freqently Asked Questions
         </h2>
         <FAQ question="How does Cryptonest work?"
-          answer="After registration you are given some amount of unreal dollars which can then be invested into crypto. However, the values of the cryptocurrencies are real." />
+          answer="After registration you should head into the profile tab and give yourself some amount of fictional funds which can then be used invested into crypto. However, the values of the cryptocurrencies are real." />
         <FAQ question="Why choose Cryptonest?"
           answer="Cryptonest offers a risk-free enviroment, which is suitable even for complete beginners." />
         <FAQ question="How do I add funds to my profile?"
