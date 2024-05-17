@@ -14,7 +14,7 @@
 
 ## Requirements
 - [Docker Desktop](https://docs.docker.com/desktop/install/windows-install/)
-- [Node.js] (https://nodejs.org/en) 
+- [Node.js](https://nodejs.org/en) 
 
 ## Installation
 
