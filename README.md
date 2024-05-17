@@ -12,18 +12,24 @@
 - Nikola Jankovič
 - Josef Mitošinka
 
-## Instalation
+## Installation
 
-```git clone https://github.com/gyarab/2023-3e-CryptoTradingPlatform.git
+`git clone https://github.com/gyarab/2023-3e-CryptoTradingPlatform.git`
 
-cd 2023-3e-CryptoTradingPlatform
+`cd 2023-3e-CryptoTradingPlatform`
 
-code .```
+`code .`
 
 přejmenovat `.env.exapmle` na `.env`
 
-```docker compose up
+`composer install`
 
-php artisan migrate
+`npm install`
+`npm run build`
 
-php artisan serve```
+`docker compose build`
+`docker compose up -d`
+
+`php artisan migrate`
+
+`php artisan serve`
