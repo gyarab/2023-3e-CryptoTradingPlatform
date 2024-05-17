@@ -12,6 +12,10 @@
 - Nikola Jankovič
 - Josef Mitošinka
 
+## Requirements
+- [Docker Desktop](https://docs.docker.com/desktop/install/windows-install/)
+- [Node.js] (https://nodejs.org/en) 
+
 ## Installation
 
 `git clone https://github.com/gyarab/2023-3e-CryptoTradingPlatform.git`
