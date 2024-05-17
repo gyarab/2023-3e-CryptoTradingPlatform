@@ -1,7 +1,7 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
-import SearchBar from '@/Components/SearchBar.vue';
+import SearchBar from '@/Components/Searchbar.vue';
 import { ref } from 'vue';
 import CryptoCalculator from '@/Components/CryptoCalculator.vue';
 import LinkCrypto from '@/Components/LinkCrypto.vue'

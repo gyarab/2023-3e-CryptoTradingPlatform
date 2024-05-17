@@ -1,7 +1,7 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import FAQ from '@/Components/FAQ.vue';
+import FAQ from '@/Components/faq.vue';
 import ApplicationName from '@/Components/ApplicationName.vue';
 
 defineProps({
