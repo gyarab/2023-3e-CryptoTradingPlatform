@@ -12,7 +12,7 @@
 - Nikola Jankovič
 - Josef Mitošinka
 
-## Instalation
+## Installation
 
 `git clone https://github.com/gyarab/2023-3e-CryptoTradingPlatform.git`
 
